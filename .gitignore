@@ -1,3 +1,8 @@
 build/*
 .vscode/
 threads/
+CMakeFiles/
+cmake_install.cmake
+CMakeCache.txt
+Makefile
+pocket_engine

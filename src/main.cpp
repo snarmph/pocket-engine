@@ -13,8 +13,7 @@ int main() {
         SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
         500, 500,
         SDL_WINDOW_OPENGL
-        );
-
+    );
 
     while(true) {
         SDL_Event e;
@@ -29,7 +28,6 @@ int main() {
     }
 
 out_of_loop:
-
     SDL_DestroyWindow(window);
     SDL_Quit();
 }

@@ -2,8 +2,8 @@ cmake_minimum_required(VERSION 3.18)
 project(pocket_engine)
 
 set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake ${CMAKE_MODULE_PATH} )
-set(CMAKE_C_STANDARD 11)
-#set(CMAKE_C_FLAGS ${CMAKE_C_FLAGS} "-pthread")
+set(CMAKE_CXX_STANDARD 11)
+#set(CMAKE_CXX_FLAGS ${CMAKE_C_FLAGS} "-pthread")
 
 find_package(SDL2 REQUIRED)
 find_package(OpenGL REQUIRED)
