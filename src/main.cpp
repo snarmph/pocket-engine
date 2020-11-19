@@ -1,33 +1,20 @@
-#include <stdio.h>
-#include <stdbool.h>
+#include <cstdio>
+#include <cstdbool>
 
-#include <SDL2/SDL.h>
-#include <GL/gl.h>
-#include <SDL2/SDL_opengl.h>
+#include "framework/engine.hpp"
+#include "framework/window.hpp"
+#include "framework/input.hpp"
 
 int main() {
-    SDL_Init(SDL_INIT_EVERYTHING);
-
-    SDL_Window *window = SDL_CreateWindow(
-        "Pocket Engine",
-        SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
-        500, 500,
-        SDL_WINDOW_OPENGL
+    engine::init();
+    input::init();
+    window::create(
+        "Pocket Engine", 
+        {500, 500}
     );
 
     while(true) {
-        SDL_Event e;
-
-        while(SDL_PollEvent(&e)) {
-            switch(e.type) {
-            case SDL_QUIT:
-                goto out_of_loop;
-                break;
-            }
-        }
+        engine::manage_events();
     }
 
-out_of_loop:
-    SDL_DestroyWindow(window);
-    SDL_Quit();
 }

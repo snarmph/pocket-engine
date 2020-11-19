@@ -2,10 +2,6 @@
 #define VECMATH_HPP
 #include "vec.hpp"
 
-//#define clamp(v, bigger, smaller) (min(max((v), (smaller)), (bigger)))
-//#define max(a, b) ( ((a)>(b)) ? (a) : (b) )
-//#define min(a, b) ( ((a)<(b)) ? (a) : (b) )
-
 namespace math {
 
 	constexpr float PI = 3.1415f;
