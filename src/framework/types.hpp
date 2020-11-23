@@ -13,6 +13,9 @@ typedef int32_t  i32;
 typedef uint64_t u64;
 typedef int64_t  i64;
 
+typedef char          byte;
+typedef unsigned char ubyte;
+
 typedef char c8;
 typedef wchar_t c16;
 

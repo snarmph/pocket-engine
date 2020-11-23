@@ -14,9 +14,13 @@ include_directories(pocket_engine ${OPENGL_INCLUDE_DIRS})
 #include_directories(pocket_engine ${LUA_INCLUDE_DIR}) 
 
 include_directories(pocket_engine "src/framework")
+include_directories(pocket_engine "third_party")
 aux_source_directory("src/framework" FRAMEWORK_SRC)
 
-add_executable(pocket_engine src/main ${FRAMEWORK_SRC})
+file(GLOB LIBRARIES_SRC third_party//glad/glad.c)
+
+add_executable(pocket_engine src/main ${FRAMEWORK_SRC} ${LIBRARIES_SRC})
 target_link_libraries(pocket_engine ${SDL2_LIBRARIES})
 target_link_libraries(pocket_engine ${OPENGL_LIBRARIES})
+target_link_libraries(pocket_engine ${CMAKE_DL_LIBS})
 #target_link_libraries(pocket_engine ${LUA_LIBRARY})

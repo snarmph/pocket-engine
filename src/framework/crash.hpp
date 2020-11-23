@@ -3,7 +3,7 @@
 
 #include <cstdio>
 
-#define crash(label, msg) do { printf(msg "\n"); goto label;} while(0);
+#define crash(label, msg, ...) do { printf(msg "\n",##__VA_ARGS__); goto label;} while(0);
 
 #define crash_and_burn(msg) do { printf(msg "\n"); exit(1); } while(0);
 
