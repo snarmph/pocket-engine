@@ -5,6 +5,7 @@
 
 namespace input {
     void init();
+
     void set_key_down(i32 key);
     void set_key_up(i32 key);
     bool is_key_down(i32 key);

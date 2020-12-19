@@ -377,6 +377,10 @@ struct mat<T, 3, 2> {
         return from_position(pos.x, pos.y);
     }
 
+    static mat from_position(const vec2f &&pos) {
+        return from_position(pos.x, pos.y);
+    }
+
     static mat from_position(float x, float y) {
         return mat {
             1, 0,

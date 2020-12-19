@@ -76,6 +76,12 @@ struct vec<T, 2> {
         y = _y;
     }
 
+    template<typename T2>
+    vec<T, 2>(const vec<T2, 2> &other) {
+        x = (T) other.x;
+        y = (T) other.y;
+    }
+
     static vec one() {
         return { 1, 1 };
     }
@@ -223,7 +229,7 @@ struct vec<T, 3> {
         };
     }
 
-    vec operator/(const T &other) {
+    vec<float, 2> operator/(const T &other) {
         return vec {
             x / other, y / other, z / other
         };
@@ -328,7 +334,7 @@ struct vec<T, 4> {
         };
     }
 
-    vec operator/(const T &other) {
+    vec<float, 2> operator/(const T &other) {
         return vec {
             x / other, y / other, z / other, w / other
         };

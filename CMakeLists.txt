@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.17)
 project(pocket_engine)
 
 set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake ${CMAKE_MODULE_PATH} )
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON )
 set(CMAKE_BUILD_TYPE Debug)
 #set(CMAKE_CXX_FLAGS ${CMAKE_C_FLAGS} "-pthread")
@@ -40,7 +40,7 @@ set(PK_SRCS
         src/pocket/json/deserializer.cpp
         src/pocket/json/parser.cpp
         src/pocket/json/readfile.cpp
-)
+        src/pocket/ecs/ecs.hpp src/pocket/ecs/other.hpp)
 
 file(GLOB LIBRARIES_SRC third_party/glad/glad.c)
 

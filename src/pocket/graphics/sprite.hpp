@@ -10,6 +10,7 @@ namespace gfx {
         texture_t texture;
         rectf tex_coords;
         rectf frame;
+        vec2f offset_center;
     };
 } // namespace gfx
 

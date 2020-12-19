@@ -32,7 +32,6 @@ namespace engine {
             case SDL_KEYDOWN:
                 input::set_key_down(e.key.keysym.scancode);
                 break;
-                break;
             case SDL_KEYUP:
                 input::set_key_up(e.key.keysym.scancode);
                 break;

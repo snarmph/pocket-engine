@@ -83,6 +83,12 @@
 		<Unit filename="/home/snarmph/Documents/c++/engine/src/pocket/IO/pkfile.hpp">
 			<Option target="pocket_engine"/>
 		</Unit>
+		<Unit filename="/home/snarmph/Documents/c++/engine/src/pocket/ecs/ecs.hpp">
+			<Option target="pocket_engine"/>
+		</Unit>
+		<Unit filename="/home/snarmph/Documents/c++/engine/src/pocket/ecs/other.hpp">
+			<Option target="pocket_engine"/>
+		</Unit>
 		<Unit filename="/home/snarmph/Documents/c++/engine/src/pocket/engine.cpp">
 			<Option target="pocket_engine"/>
 		</Unit>
