@@ -24,10 +24,10 @@ struct vec {
             v[i] = value_for_all;
     }
 
-    T& operator[](size_t index) {
+    T &operator[](size_t index) {
         return v[index];
     }
-    const T& operator[](size_t index) const {
+    const T &operator[](size_t index) const {
         return v[index];
     }
 
@@ -78,8 +78,8 @@ struct vec<T, 2> {
 
     template<typename T2>
     vec<T, 2>(const vec<T2, 2> &other) {
-        x = (T) other.x;
-        y = (T) other.y;
+        x = (T)other.x;
+        y = (T)other.y;
     }
 
     static vec one() {
@@ -93,7 +93,7 @@ struct vec<T, 2> {
     bool operator==(const vec &other) {
         return (
             x == other.x && y == other.y
-        );
+            );
     }
 
     vec &operator=(const vec &other) {
@@ -102,32 +102,32 @@ struct vec<T, 2> {
         return *this;
     }
 
-    vec operator-() {
-        return vec {
+    vec operator-() const {
+        return vec{
             -x, -y
         };
     }
 
-    vec operator+(const vec &other) {
-        return vec {
+    vec operator+(const vec &other) const {
+        return vec{
             x + other.x, y + other.y
         };
     }
 
-    vec operator-(const vec &other) {
-        return vec {
+    vec operator-(const vec &other) const {
+        return vec{
             x - other.x, y - other.y
         };
     }
 
-    vec operator*(const T &other) {
-        return vec {
+    vec operator*(const T &other) const {
+        return vec{
             x * other, y * other
         };
     }
 
-    vec operator/(const T &other) {
-        return vec {
+    vec operator/(const T &other) const {
+        return vec{
             x / other, y / other
         };
     }
@@ -138,17 +138,17 @@ struct vec<T, 2> {
     }
 
     void operator-=(const vec &other) {
-        x -= other.x; 
+        x -= other.x;
         y -= other.y;
     }
 
     void operator*=(const float &other) {
-        x *= other; 
+        x *= other;
         y *= other;
     }
 
     void operator/=(const float &other) {
-        x /= other; 
+        x /= other;
         y /= other;
     }
 };
@@ -201,7 +201,7 @@ struct vec<T, 3> {
     bool operator==(const vec &other) {
         return (
             x == other.x && y == other.y && z == other.z
-        );
+            );
     }
 
     vec &operator=(const vec &other) {
@@ -212,25 +212,25 @@ struct vec<T, 3> {
     }
 
     vec operator+(const vec &other) {
-        return vec {
+        return vec{
             x + other.x, y + other.y, z + other.z
         };
     }
 
     vec operator-(const vec &other) {
-        return vec {
+        return vec{
             x - other.x, y - other.y, z - other.z
         };
     }
 
     vec operator*(const T &other) {
-        return vec {
+        return vec{
             x * other, y * other, z * other
         };
     }
 
     vec<float, 2> operator/(const T &other) {
-        return vec {
+        return vec{
             x / other, y / other, z / other
         };
     }
@@ -305,7 +305,7 @@ struct vec<T, 4> {
     bool operator==(const vec &other) {
         return (
             x == other.x && y == other.y && z == other.z && z == other.w
-        );
+            );
     }
 
     vec &operator=(const vec &other) {
@@ -317,25 +317,25 @@ struct vec<T, 4> {
     }
 
     vec operator+(const vec &other) {
-        return vec {
+        return vec{
             x + other.x, y + other.y, z + other.z, w + other.w
         };
     }
 
     vec operator-(const vec &other) {
-        return vec {
+        return vec{
             x - other.x, y - other.y, z - other.z, w - other.w
         };
     }
 
     vec operator*(const T &other) {
-        return vec {
+        return vec{
             x * other, y * other, z * other, w * other
         };
     }
 
     vec<float, 2> operator/(const T &other) {
-        return vec {
+        return vec{
             x / other, y / other, z / other, w / other
         };
     }

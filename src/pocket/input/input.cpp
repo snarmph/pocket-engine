@@ -1,7 +1,6 @@
 #include "input.hpp"
 
 #include <array>
-#include <SDL2/SDL.h>
 
 #include <pocket/util/pkassert.h>
 

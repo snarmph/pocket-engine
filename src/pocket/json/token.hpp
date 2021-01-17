@@ -20,7 +20,7 @@ namespace json {
 
     struct Token {
         TokenType type;
-        size_t start, end;
+        size_t start = 0, end = 0;
 
         Token() {}
         Token(TokenType type, size_t start, size_t end) {

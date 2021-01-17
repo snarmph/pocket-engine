@@ -28,7 +28,7 @@ namespace pk {
 
         bool open(const char *name, const char *mode = "r");
 
-        const byte *read_whole();
+        const char *read_whole();
     };
 
 } // namespace pk

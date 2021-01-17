@@ -1,7 +1,7 @@
 #ifndef PKASSERT_H
 #define PKASSERT_H
 
-// #include <stdio.h>
+#include <stdio.h>
 #include <stdlib.h>
 
 #ifdef NDEBUG

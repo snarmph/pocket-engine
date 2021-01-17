@@ -16,7 +16,7 @@ namespace gfx {
 
     void draw_batch::quad(const rectf &frame, const rectf &tex_coordinate, const mat3x2 &m) {
         indices.reserve(6);
-        u32 i = vertices.size();
+        u32 i = (u32) vertices.size();
         indices.emplace_back(i + 0);
         indices.emplace_back(i + 1);
         indices.emplace_back(i + 2);
@@ -45,7 +45,7 @@ namespace gfx {
 
     void draw_batch::quad(const rectf &frame, f32 z_pos, const rectf &tex_coordinate, const mat3x2 &m) {
         indices.reserve(6);
-        u32 i = vertices.size();
+        u32 i = (u32) vertices.size();
         indices.emplace_back(i + 0);
         indices.emplace_back(i + 1);
         indices.emplace_back(i + 2);
@@ -80,8 +80,9 @@ namespace gfx {
     }
 
     batcher::batcher() {
-        batches.emplace_back();
-        curbatch = batches.data();
+        for(auto &layer: batch_layers)
+            layer.emplace_back();
+        curbatch = &batch_layers[0].front();
     }
 
     void batcher::push_matrix(const mat3x2 &m) {
@@ -94,22 +95,27 @@ namespace gfx {
     }
 
     void batcher::set_texture(const texture_t &t) {
-//        for(auto &b: batches) {
-//            if(b.tex_id == t.id) {
-//                curbatch = &b;
-//                return;
-//            }
-//        }
-        if(curbatch->tex_id == t.id)
+        if (batch_layers[(size_t)curlayer][0].tex_id == 0) {
+            curbatch->tex_id = t.id;
             return;
+        }
+        
+        for(auto &b: batch_layers[(size_t)curlayer]) {
+            if(b.tex_id == t.id) {
+                curbatch = &b;
+                return;
+            }
+        }
+        //if(curbatch->tex_id == t.id)
+        //    return;
 
-        batches.emplace_back();
-        curbatch = batches.end()-1;
+        add_batch();
         curbatch->tex_id = t.id;
     }
 
-    void batcher::set_z_position(const f32 z_pos) const {
-        curbatch->z_pos = z_pos;
+    void batcher::set_layer(const enum layers layer) {
+        curlayer = layer;
+        curbatch = &batch_layers[(size_t)curlayer].back();
     }
 
     void batcher::rect(const rectf &position, const rectf &tex_coordinate) const {
@@ -123,17 +129,25 @@ namespace gfx {
 
 
     void batcher::render() {
-        for(auto &b: batches)
-            draw_single_batch(b);
+        for(auto &layer: batch_layers)
+            for(auto &batch: layer)
+                draw_single_batch(batch);
     }
 
     void batcher::clear() {
         matrices.clear();
-        batches.clear();
+        for (auto &layer : batch_layers)
+            layer.clear();
         curmat = mat3x2::identity();
 
-        batches.emplace_back();
-        curbatch = batches.data();
+        for (auto &layer : batch_layers)
+            layer.emplace_back();
+        curbatch = batch_layers[0].data();
+    }
+
+    void batcher::add_batch() {
+        batch_layers[(size_t)curlayer].emplace_back();
+        curbatch = &batch_layers[(size_t)curlayer].back();
     }
 
 } // namespace gfx

@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.17)
+cmake_minimum_required(VERSION 3.16)
 project(pocket_engine)
 
 set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake ${CMAKE_MODULE_PATH} )
@@ -22,25 +22,37 @@ include_directories(pocket_engine "third_party")
 
 set(PK_SRCS
         src/main.cpp
+
         src/pocket/window.cpp
         src/pocket/engine.cpp
+        src/pocket/world.cpp
+
+        src/pocket/game/character.cpp
+        src/pocket/game/entity.cpp
+        src/pocket/game/tilemap.cpp
+
+        src/pocket/graphics/batch.cpp
         src/pocket/graphics/graphics.cpp
         src/pocket/graphics/shader.cpp
         src/pocket/graphics/sprite.cpp
         src/pocket/graphics/texture.cpp
-        src/pocket/graphics/batch.cpp
-        src/pocket/graphics/tilemap.cpp
+
         src/pocket/input/input.cpp
+
         src/pocket/IO/pkfile.cpp
-        src/pocket/math/matmath.cpp
-        src/pocket/math/vecmath.cpp
-        src/pocket/math/rect.hpp
-        src/pocket/math/constants.cpp
-        src/pocket/math/constants.hpp
+
         src/pocket/json/deserializer.cpp
         src/pocket/json/parser.cpp
         src/pocket/json/readfile.cpp
-        src/pocket/ecs/ecs.hpp src/pocket/ecs/other.hpp)
+
+        src/pocket/math/constants.cpp
+        src/pocket/math/matmath.cpp
+        src/pocket/math/vecmath.cpp
+
+        src/pocket/components/player_controller.cpp
+        src/pocket/components/sprite.cpp
+        src/pocket/components/tilemap.cpp
+	)
 
 file(GLOB LIBRARIES_SRC third_party/glad/glad.c)
 

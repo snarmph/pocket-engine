@@ -1,16 +1,16 @@
 #include "tilemap.hpp"
-#include <fstream>
-#include <iostream>
-#include <string>
-
-#include <pocket/types.hpp>
-#include "batch.hpp"
 
 #include <pocket/json/json.hpp>
 
-namespace gfx {
-    tilemap::tilemap(const char *fname) {
-        load(fname);
+
+namespace pk {
+    void tilemap::render(gfx::batcher &batch) {
+        for(u8 i = 0; i<layers.size(); i++) {
+            batch.set_layer((gfx::layers)i);
+            batch.set_texture(texture);
+            for(size_t j=0; j<layers[i].frames.size(); j++)
+                batch.rect(layers[i].frames[j], layers[i].texcoords[j]);
+        }
     }
 
     void tilemap::load(const char *fname) {
@@ -34,19 +34,19 @@ namespace gfx {
 
         for(size_t i=0; i<map["layers"].as_array().size(); i++) {
             const auto &data = map["layers"][i].as_array();
-            if(i)
-                layers[i].z_pos = layers[i-1].z_pos + 1.f;
+            //if(i)
+            //    layers[i].z_pos = layers[i-1].z_pos + 1.f;
             for(size_t j=0; j<data.size(); j++) {
                 u32 num = ((u32)data[j].as_number());
                 if(num == 0)
                     continue;
                 num--;
-                u32 x = j % width;
-                u32 y = j / width;
+                f32 x = (j % width) * tile_size;
+                f32 y = (j / width) * tile_size;
                 u32 tx = num % tex_cols;
                 u32 ty = num / tex_cols;
                 layers[i].frames.emplace_back(
-                    vec2f{(f32)x, (f32)y} * tile_size,
+                    vec2f{x, y},
                     vec2f{tile_size}
                 );
                 layers[i].texcoords.emplace_back(
@@ -55,24 +55,5 @@ namespace gfx {
                 );
             }
         }
-
-        /*
-        const f32 size = 16.f;
-        for(size_t i=0; i<4; i++) {
-            u32 x = i % tm_w;
-            u32 y = i / tm_w;
-            u32 tx = tilemap[i] % columns;
-            u32 ty = tilemap[i] / columns;
-            frames.emplace_back(
-                vec2f{(f32)x, (f32)y} * size,
-                vec2f{size}
-            );
-            texcoords.emplace_back(
-                tx * tex_step.x, ty * tex_step.y,
-                tex_step.x, tex_step.y
-            );
-        }
-         * */
     }
-
-} // namespace gfx
+} // namespace pk 

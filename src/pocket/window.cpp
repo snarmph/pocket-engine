@@ -1,10 +1,7 @@
 #include "window.hpp"
 
 #include <cstring>
-
-#include <glad/glad.h>
-#include <GL/gl.h>
-#include <SDL2/SDL_opengl.h>
+#include <cstdio>
 
 namespace {
     SDL_GLContext context;

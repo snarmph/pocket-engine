@@ -1,7 +1,6 @@
 #include "texture.hpp"
 
-#include <SDL2/SDL.h>
-#include <GL/gl.h>
+#include "gfx_api.h"
 
 #define STB_IMAGE_IMPLEMENTATION
 #include <stb_image.h>
@@ -19,14 +18,14 @@ namespace gfx {
     }
 
     void texture_t::load(const char *fname) {
-//        stbi_set_flip_vertically_on_load(false);
         i32 channels;
-        ubyte *data = stbi_load(fname, &size.x, &size.y, &channels, 0);
+        byte *data = stbi_load(fname, &size.x, &size.y, &channels, 0);
         
         if(!data) {
             crash(data_error, "couldn't load image [ %s ]", fname);
         }
         else {
+            
             GLenum format = (channels==4) ? GL_RGBA : GL_RGB;
             
             glGenTextures(1, &id);

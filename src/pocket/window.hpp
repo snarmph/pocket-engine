@@ -2,8 +2,7 @@
 #define WINDOW_HPP
 
 #include <pocket/math/vec.hpp>
-
-#include <SDL2/SDL.h>
+#include <pocket/graphics/gfx_api.h>
 
 namespace window {
     extern const char *name;

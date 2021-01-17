@@ -1,7 +1,6 @@
 #include "engine.hpp"
 
-#include <SDL2/SDL.h>
-#include <GL/gl.h>
+#include <pocket/graphics/gfx_api.h>
 
 #include "window.hpp"
 #include <pocket/input/input.hpp>

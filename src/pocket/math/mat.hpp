@@ -330,7 +330,7 @@ struct mat<T, 3, 2> {
         };
     }
 
-    vec2f transform_point(float x, float y) const {
+    vec2f transform_point(const float x, const float y) const {
         return vec2f {
             (x * m[0][0]) + (y * m[1][0]) + m[2][0],
             (x * m[0][1]) + (y * m[1][1]) + m[2][1]
@@ -357,7 +357,7 @@ struct mat<T, 3, 2> {
         };
     }
 
-    static mat from_scale(float scale) {
+    static mat from_scale(const float scale) {
         return from_scale(scale, scale);
     }
 
@@ -365,7 +365,7 @@ struct mat<T, 3, 2> {
         return from_scale(scale.x, scale.y);
     }
 
-    static mat from_scale(float x, float y) {
+    static mat from_scale(const float x, const float y) {
         return mat {
             x, 0,
             0, y,

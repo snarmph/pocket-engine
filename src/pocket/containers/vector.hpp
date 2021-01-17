@@ -63,7 +63,6 @@ namespace mem {
         }
 
         void resize(size_t newsize) {
-            printf("newsize %lu, old %lu\n", newsize, _size);
             // if you need to add data, emplace it back
             if(newsize > _size) {
                 for(size_t i=_size; i<newsize; i++)
@@ -73,7 +72,6 @@ namespace mem {
             else {
                 for(size_t i=_size-1; i>=newsize; i--) {
                     _data[i].~T();
-                    printf("deleting : %lu\n", i);
                 }
                 reallocate(newsize);
             }
@@ -115,6 +113,19 @@ namespace mem {
             _data[position].~T();
             if(position != --_size)
                 _data[position] = _data[_size];
+        }
+
+        inline void remove(T &instance) {
+            assert(instance && "erasing a nullptr");
+            size_t position = 0;
+            for(long i = _size-1; i >= 0; i--) {
+                if(_data[i] == instance) {
+                    position = i;
+                    erase(i);
+                    return;
+                }
+            }
+            assert(false && "couldn't find instance in array");
         }
 
         void clear() {
