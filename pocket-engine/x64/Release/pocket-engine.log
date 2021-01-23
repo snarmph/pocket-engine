@@ -1,0 +1,73 @@
+﻿  animator.cpp
+C:\Users\ceswi\OneDrive\Documents\ale\pocket-engine-vs2019\pocket-engine-vs2019\pocket-engine\src\pocket\graphics\batch.hpp(87,1): warning C4267: '+=': conversione da 'size_t' a 'u32'. Possibile perdita di dati.
+C:\Users\ceswi\OneDrive\Documents\ale\pocket-engine-vs2019\pocket-engine-vs2019\pocket-engine\src\pocket\components\animator.cpp(48,29): warning C4267: 'inizializzazione': conversione da 'size_t' a 'u32'. Possibile perdita di dati.
+C:\Users\ceswi\OneDrive\Documents\ale\pocket-engine-vs2019\pocket-engine-vs2019\pocket-engine\src\pocket\components\animator.cpp(88,64): warning C4267: '=': conversione da 'size_t' a 'u32'. Possibile perdita di dati.
+  movement.cpp
+C:\Users\ceswi\OneDrive\Documents\ale\pocket-engine-vs2019\pocket-engine-vs2019\pocket-engine\src\pocket\graphics\batch.hpp(87,1): warning C4267: '+=': conversione da 'size_t' a 'u32'. Possibile perdita di dati.
+  player_controller.cpp
+C:\Users\ceswi\OneDrive\Documents\ale\pocket-engine-vs2019\pocket-engine-vs2019\pocket-engine\src\pocket\graphics\batch.hpp(87,1): warning C4267: '+=': conversione da 'size_t' a 'u32'. Possibile perdita di dati.
+  sprite.cpp
+C:\Users\ceswi\OneDrive\Documents\ale\pocket-engine-vs2019\pocket-engine-vs2019\pocket-engine\src\pocket\graphics\batch.hpp(87,1): warning C4267: '+=': conversione da 'size_t' a 'u32'. Possibile perdita di dati.
+  tilemap.cpp
+C:\Users\ceswi\OneDrive\Documents\ale\pocket-engine-vs2019\pocket-engine-vs2019\pocket-engine\src\pocket\graphics\batch.hpp(87,1): warning C4267: '+=': conversione da 'size_t' a 'u32'. Possibile perdita di dati.
+  main.cpp
+C:\Users\ceswi\OneDrive\Documents\ale\pocket-engine-vs2019\pocket-engine-vs2019\pocket-engine\src\main.cpp(4,1): warning C4005: '_CRT_SECURE_NO_WARNINGS': ridefinizione macro
+C:\Users\ceswi\OneDrive\Documents\ale\pocket-engine-vs2019\pocket-engine-vs2019\pocket-engine\src\main.cpp : message : vedere la precedente definizione di '_CRT_SECURE_NO_WARNINGS'
+C:\Users\ceswi\OneDrive\Documents\ale\pocket-engine-vs2019\pocket-engine-vs2019\pocket-engine\src\pocket\graphics\batch.hpp(87,1): warning C4267: '+=': conversione da 'size_t' a 'u32'. Possibile perdita di dati.
+  engine.cpp
+  batch.cpp
+C:\Users\ceswi\OneDrive\Documents\ale\pocket-engine-vs2019\pocket-engine-vs2019\pocket-engine\src\pocket\graphics\batch.hpp(87,1): warning C4267: '+=': conversione da 'size_t' a 'u32'. Possibile perdita di dati.
+  graphics.cpp
+  shader.cpp
+  texture.cpp
+  deserializer.cpp
+  parser.cpp
+  matmath.cpp
+  vecmath.cpp
+  window.cpp
+  world.cpp
+C:\Users\ceswi\OneDrive\Documents\ale\pocket-engine-vs2019\pocket-engine-vs2019\pocket-engine\src\pocket\graphics\batch.hpp(87,1): warning C4267: '+=': conversione da 'size_t' a 'u32'. Possibile perdita di dati.
+C:\Users\ceswi\OneDrive\Documents\ale\pocket-engine-vs2019\pocket-engine-vs2019\pocket-engine\src\pocket\world.cpp(9,9): warning C4267: 'inizializzazione': conversione da 'size_t' a 'long'. Possibile perdita di dati.
+C:\Users\ceswi\OneDrive\Documents\ale\pocket-engine-vs2019\pocket-engine-vs2019\pocket-engine\src\pocket\world.cpp(41,9): warning C4267: 'inizializzazione': conversione da 'size_t' a 'int'. Possibile perdita di dati.
+C:\Users\ceswi\OneDrive\Documents\ale\pocket-engine-vs2019\pocket-engine-vs2019\pocket-engine\src\pocket\world.cpp(49,9): warning C4267: 'inizializzazione': conversione da 'size_t' a 'int'. Possibile perdita di dati.
+C:\Users\ceswi\OneDrive\Documents\ale\pocket-engine-vs2019\pocket-engine-vs2019\pocket-engine\src\pocket\containers\vector.hpp(130,1): warning C4267: 'inizializzazione': conversione da 'size_t' a 'long'. Possibile perdita di dati.
+C:\Users\ceswi\OneDrive\Documents\ale\pocket-engine-vs2019\pocket-engine-vs2019\pocket-engine\src\pocket\containers\vector.hpp(127): message : durante la compilazione della funzione membro 'void mem::vector<pk::entity *>::remove(T &)' di modello classe
+          with
+          [
+              T=pk::entity *
+          ]
+C:\Users\ceswi\OneDrive\Documents\ale\pocket-engine-vs2019\pocket-engine-vs2019\pocket-engine\src\pocket\world.cpp(44): message : vedere il riferimento all'istanza 'void mem::vector<pk::entity *>::remove(T &)' della funzione modello di cui è in corso la compilazione
+          with
+          [
+              T=pk::entity *
+          ]
+C:\Users\ceswi\OneDrive\Documents\ale\pocket-engine-vs2019\pocket-engine-vs2019\pocket-engine\src\pocket\world.hpp(84): message : vedere il riferimento all'istanza 'mem::vector<pk::entity *>' di modello classe di cui è in corso la compilazione
+  Generazione codice in corso...
+C:\Users\ceswi\OneDrive\Documents\ale\pocket-engine-vs2019\pocket-engine-vs2019\pocket-engine\src\pocket\world.hpp(100): warning C4715: 'pk::entity::get<pk::movement>': non tutti i percorsi di controllo restituiscono un valore
+C:\Users\ceswi\OneDrive\Documents\ale\pocket-engine-vs2019\pocket-engine-vs2019\pocket-engine\src\pocket\world.hpp(100): warning C4715: 'pk::entity::get<pk::animator>': non tutti i percorsi di controllo restituiscono un valore
+C:\Users\ceswi\OneDrive\Documents\ale\pocket-engine-vs2019\pocket-engine-vs2019\pocket-engine\src\pocket\components\movement.hpp(69): warning C4715: 'pk::vec2i_from_dir': non tutti i percorsi di controllo restituiscono un valore
+  523 of 1180 functions (44.3%) were compiled, the rest were copied from previous compilation.
+    306 functions were new in current compilation
+    118 functions had inline decision re-evaluated but remain unchanged
+  Generazione codice terminata
+input.obj : warning LNK4020: 'c:\users\ceswi\onedrive\documents\ale\pocket-engine-vs2019\pocket-engine-vs2019\pocket-engine\x64\release\vc142.pdb' contiene un record di tipo danneggiato. Alcuni tipi e simboli potrebbero non essere accessibili dal debugger
+constants.obj : warning LNK4020: 'c:\users\ceswi\onedrive\documents\ale\pocket-engine-vs2019\pocket-engine-vs2019\pocket-engine\x64\release\vc142.pdb' contiene un record di tipo danneggiato. Alcuni tipi e simboli potrebbero non essere accessibili dal debugger
+window.obj : warning LNK4020: 'c:\users\ceswi\onedrive\documents\ale\pocket-engine-vs2019\pocket-engine-vs2019\pocket-engine\x64\release\vc142.pdb' contiene un record di tipo danneggiato. Alcuni tipi e simboli potrebbero non essere accessibili dal debugger
+glad.obj : warning LNK4020: 'c:\users\ceswi\onedrive\documents\ale\pocket-engine-vs2019\pocket-engine-vs2019\pocket-engine\x64\release\vc142.pdb' contiene un record di tipo danneggiato. Alcuni tipi e simboli potrebbero non essere accessibili dal debugger
+kernel32.lib(KERNEL32.dll) : warning LNK4020: 'c:\users\ceswi\onedrive\documents\ale\pocket-engine-vs2019\pocket-engine-vs2019\pocket-engine\x64\release\vc142.pdb' contiene un record di tipo danneggiato. Alcuni tipi e simboli potrebbero non essere accessibili dal debugger
+MSVCRT.lib(gs_cookie.obj) : warning LNK4020: 'c:\users\ceswi\onedrive\documents\ale\pocket-engine-vs2019\pocket-engine-vs2019\pocket-engine\x64\release\vc142.pdb' contiene un record di tipo danneggiato. Alcuni tipi e simboli potrebbero non essere accessibili dal debugger
+MSVCRT.lib(gs_report.obj) : warning LNK4020: 'c:\users\ceswi\onedrive\documents\ale\pocket-engine-vs2019\pocket-engine-vs2019\pocket-engine\x64\release\vc142.pdb' contiene un record di tipo danneggiato. Alcuni tipi e simboli potrebbero non essere accessibili dal debugger
+MSVCRT.lib(guard_support.obj) : warning LNK4020: 'c:\users\ceswi\onedrive\documents\ale\pocket-engine-vs2019\pocket-engine-vs2019\pocket-engine\x64\release\vc142.pdb' contiene un record di tipo danneggiato. Alcuni tipi e simboli potrebbero non essere accessibili dal debugger
+MSVCRT.lib(ucrt_detection.obj) : warning LNK4020: 'c:\users\ceswi\onedrive\documents\ale\pocket-engine-vs2019\pocket-engine-vs2019\pocket-engine\x64\release\vc142.pdb' contiene un record di tipo danneggiato. Alcuni tipi e simboli potrebbero non essere accessibili dal debugger
+LINK : warning LNK4020: 'c:\users\ceswi\onedrive\documents\ale\pocket-engine-vs2019\pocket-engine-vs2019\pocket-engine\x64\release\vc142.pdb' contiene un record di tipo danneggiato. Alcuni tipi e simboli potrebbero non essere accessibili dal debugger
+LINK : warning LNK4020: 'c:\users\ceswi\onedrive\documents\ale\pocket-engine-vs2019\pocket-engine-vs2019\pocket-engine\x64\release\vc142.pdb' contiene un record di tipo danneggiato. Alcuni tipi e simboli potrebbero non essere accessibili dal debugger
+LINK : warning LNK4020: 'c:\users\ceswi\onedrive\documents\ale\pocket-engine-vs2019\pocket-engine-vs2019\pocket-engine\x64\release\vc142.pdb' contiene un record di tipo danneggiato. Alcuni tipi e simboli potrebbero non essere accessibili dal debugger
+LINK : warning LNK4020: 'c:\users\ceswi\onedrive\documents\ale\pocket-engine-vs2019\pocket-engine-vs2019\pocket-engine\x64\release\vc142.pdb' contiene un record di tipo danneggiato. Alcuni tipi e simboli potrebbero non essere accessibili dal debugger
+LINK : warning LNK4020: 'c:\users\ceswi\onedrive\documents\ale\pocket-engine-vs2019\pocket-engine-vs2019\pocket-engine\x64\release\vc142.pdb' contiene un record di tipo danneggiato. Alcuni tipi e simboli potrebbero non essere accessibili dal debugger
+LINK : warning LNK4020: 'c:\users\ceswi\onedrive\documents\ale\pocket-engine-vs2019\pocket-engine-vs2019\pocket-engine\x64\release\vc142.pdb' contiene un record di tipo danneggiato. Alcuni tipi e simboli potrebbero non essere accessibili dal debugger
+LINK : warning LNK4020: 'c:\users\ceswi\onedrive\documents\ale\pocket-engine-vs2019\pocket-engine-vs2019\pocket-engine\x64\release\vc142.pdb' contiene un record di tipo danneggiato. Alcuni tipi e simboli potrebbero non essere accessibili dal debugger
+LINK : warning LNK4020: 'c:\users\ceswi\onedrive\documents\ale\pocket-engine-vs2019\pocket-engine-vs2019\pocket-engine\x64\release\vc142.pdb' contiene un record di tipo danneggiato. Alcuni tipi e simboli potrebbero non essere accessibili dal debugger
+LINK : warning LNK4020: 'c:\users\ceswi\onedrive\documents\ale\pocket-engine-vs2019\pocket-engine-vs2019\pocket-engine\x64\release\vc142.pdb' contiene un record di tipo danneggiato. Alcuni tipi e simboli potrebbero non essere accessibili dal debugger
+LINK : warning LNK4020: 'c:\users\ceswi\onedrive\documents\ale\pocket-engine-vs2019\pocket-engine-vs2019\pocket-engine\x64\release\vc142.pdb' contiene un record di tipo danneggiato. Alcuni tipi e simboli potrebbero non essere accessibili dal debugger
+LINK : warning LNK4020: 'c:\users\ceswi\onedrive\documents\ale\pocket-engine-vs2019\pocket-engine-vs2019\pocket-engine\x64\release\vc142.pdb' contiene un record di tipo danneggiato. Alcuni tipi e simboli potrebbero non essere accessibili dal debugger
+  pocket-engine.vcxproj -> C:\Users\ceswi\OneDrive\Documents\ale\pocket-engine-vs2019\pocket-engine-vs2019\x64\Release\pocket-engine.exe

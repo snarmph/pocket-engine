@@ -1,0 +1,33 @@
+﻿  tilemap_animator.cpp
+  string.cpp
+  factory.cpp
+  animator.cpp
+  movement.cpp
+  player_controller.cpp
+  sprite.cpp
+  tilemap.cpp
+  main.cpp
+  engine.cpp
+  time.cpp
+  window.cpp
+  world.cpp
+  tileset_data.cpp
+  batch.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\shared\minwindef.h(130,1): warning C4005: 'APIENTRY': ridefinizione macro
+C:\Users\ceswi\OneDrive\Documents\ale\pocket-engine\pocket-engine\third_party\glad\glad.h(32): message : vedere la precedente definizione di 'APIENTRY'
+  graphics.cpp
+  shader.cpp
+  texture.cpp
+  input.cpp
+  pkfile.cpp
+  Generazione del codice in corso...
+  Compilazione in corso...
+  deserializer.cpp
+  parser.cpp
+  readfile.cpp
+  constants.cpp
+  matmath.cpp
+  vecmath.cpp
+  Generazione del codice in corso...
+  glad.c
+  pocket-engine.vcxproj -> C:\Users\ceswi\OneDrive\Documents\ale\pocket-engine\x64\Debug\pocket-engine.exe

@@ -1,0 +1,504 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="File di origine">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="File di intestazione">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="File di risorse">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\pocket\containers\vector.hpp">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pocket\graphics\batch.hpp">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pocket\graphics\graphics.hpp">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pocket\graphics\shader.hpp">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pocket\graphics\texture.hpp">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pocket\input\input.hpp">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pocket\IO\pkfile.hpp">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pocket\json\deserializer.hpp">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pocket\json\json.hpp">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pocket\json\parser.hpp">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pocket\json\readfile.hpp">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pocket\json\token.hpp">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pocket\json\typedefs.hpp">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pocket\json\value.hpp">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pocket\math\constants.hpp">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pocket\math\mat.hpp">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pocket\math\matmath.hpp">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pocket\math\rect.hpp">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pocket\math\vec.hpp">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pocket\math\vecmath.hpp">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pocket\util\crash.hpp">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pocket\util\pkassert.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\glad\glad.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\KHR\khrplatform.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\begin_code.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\close_code.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_assert.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_atomic.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_audio.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_bits.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_blendmode.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_clipboard.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_config.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_config_android.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_config_iphoneos.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_config_macosx.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_config_minimal.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_config_pandora.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_config_psp.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_config_windows.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_config_winrt.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_config_wiz.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_copying.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_cpuinfo.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_egl.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_endian.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_error.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_events.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_filesystem.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_gamecontroller.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_gesture.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_haptic.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_hints.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_joystick.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_keyboard.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_keycode.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_loadso.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_locale.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_log.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_main.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_messagebox.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_metal.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_misc.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_mouse.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_mutex.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_name.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_opengl.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_opengl_glext.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_opengles.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_opengles2.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_opengles2_gl2.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_opengles2_gl2ext.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_opengles2_gl2platform.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_opengles2_khrplatform.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_pixels.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_platform.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_power.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_quit.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_rect.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_render.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_revision.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_rwops.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_scancode.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_sensor.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_shape.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_stdinc.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_surface.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_system.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_syswm.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_test.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_test_assert.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_test_common.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_test_compare.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_test_crc32.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_test_font.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_test_fuzzer.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_test_harness.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_test_images.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_test_log.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_test_md5.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_test_memory.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_test_random.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_thread.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_timer.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_touch.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_types.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_version.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_video.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\sdl2\include\SDL_vulkan.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\stb_image.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pocket\graphics\gfx_api.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pocket\components\player_controller.hpp">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pocket\components\sprite.hpp">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pocket\components\tilemap.hpp">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pocket\components\movement.hpp">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pocket\components\animator.hpp">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pocket\containers\containers.hpp">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pocket\debug\benchmark.hpp">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pocket\core\engine.hpp">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pocket\core\types.hpp">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pocket\core\window.hpp">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pocket\core\world.hpp">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pocket\core\time.hpp">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pocket\pocket.hpp">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pocket\core\factory.hpp">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pocket\containers\string.hpp">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pocket\generated\tileset_data.hpp">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pocket\generated\tileset_data_fromjson.hpp">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pocket\components\tilemap_animator.hpp">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pocket\components\map.hpp">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\pocket\graphics\batch.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pocket\graphics\graphics.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pocket\graphics\shader.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pocket\graphics\texture.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pocket\input\input.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pocket\IO\pkfile.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pocket\json\deserializer.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pocket\json\parser.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pocket\json\readfile.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pocket\math\constants.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pocket\math\matmath.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pocket\math\vecmath.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="third_party\glad\glad.c">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pocket\components\player_controller.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pocket\components\sprite.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pocket\components\tilemap.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pocket\components\movement.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pocket\components\animator.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pocket\core\engine.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pocket\core\window.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pocket\core\world.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pocket\core\factory.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pocket\core\time.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pocket\containers\string.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pocket\generated\tileset_data.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pocket\components\tilemap_animator.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SDL2.dll" />
+    <None Include="shaders\basic.frag" />
+    <None Include="shaders\basic.vert" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="SDL2.lib" />
+    <Library Include="SDL2main.lib" />
+  </ItemGroup>
+</Project>

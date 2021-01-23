@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{a7ca676c-9d6e-4604-8499-a9831b6ee579}</ProjectGuid>
+    <RootNamespace>pocketengine</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>third_party/;src/;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>third_party/;src/;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);src/;third_party/</IncludePath>
+    <LibraryPath>$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);src/;third_party/</IncludePath>
+    <LibraryPath>$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>third_party/sdl2/lib/x86/SDL2.lib;third_party/sdl2/lib/x86/SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>third_party/sdl2/lib/x86/SDL2.lib;third_party/sdl2/lib/x86/SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>third_party/sdl2/lib/x64/SDL2.lib;third_party/sdl2/lib/x64/SDL2main.lib;SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>third_party/sdl2/lib/x64/SDL2.lib;third_party/sdl2/lib/x64/SDL2main.lib;SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="src\pocket\components\map.hpp" />
+    <ClInclude Include="src\pocket\components\tilemap_animator.hpp" />
+    <ClInclude Include="src\pocket\containers\string.hpp" />
+    <ClInclude Include="src\pocket\core\factory.hpp" />
+    <ClInclude Include="src\pocket\core\engine.hpp" />
+    <ClInclude Include="src\pocket\core\time.hpp" />
+    <ClInclude Include="src\pocket\core\types.hpp" />
+    <ClInclude Include="src\pocket\core\window.hpp" />
+    <ClInclude Include="src\pocket\core\world.hpp" />
+    <ClInclude Include="src\pocket\debug\benchmark.hpp" />
+    <ClInclude Include="src\pocket\components\animator.hpp" />
+    <ClInclude Include="src\pocket\components\movement.hpp" />
+    <ClInclude Include="src\pocket\components\player_controller.hpp" />
+    <ClInclude Include="src\pocket\components\sprite.hpp" />
+    <ClInclude Include="src\pocket\components\tilemap.hpp" />
+    <ClInclude Include="src\pocket\containers\containers.hpp" />
+    <ClInclude Include="src\pocket\containers\vector.hpp" />
+    <ClInclude Include="src\pocket\generated\tileset_data.hpp" />
+    <ClInclude Include="src\pocket\generated\tileset_data_fromjson.hpp" />
+    <ClInclude Include="src\pocket\graphics\batch.hpp" />
+    <ClInclude Include="src\pocket\graphics\gfx_api.h" />
+    <ClInclude Include="src\pocket\graphics\graphics.hpp" />
+    <ClInclude Include="src\pocket\graphics\shader.hpp" />
+    <ClInclude Include="src\pocket\graphics\texture.hpp" />
+    <ClInclude Include="src\pocket\input\input.hpp" />
+    <ClInclude Include="src\pocket\IO\pkfile.hpp" />
+    <ClInclude Include="src\pocket\json\deserializer.hpp" />
+    <ClInclude Include="src\pocket\json\json.hpp" />
+    <ClInclude Include="src\pocket\json\parser.hpp" />
+    <ClInclude Include="src\pocket\json\readfile.hpp" />
+    <ClInclude Include="src\pocket\json\token.hpp" />
+    <ClInclude Include="src\pocket\json\typedefs.hpp" />
+    <ClInclude Include="src\pocket\json\value.hpp" />
+    <ClInclude Include="src\pocket\math\constants.hpp" />
+    <ClInclude Include="src\pocket\math\mat.hpp" />
+    <ClInclude Include="src\pocket\math\matmath.hpp" />
+    <ClInclude Include="src\pocket\math\rect.hpp" />
+    <ClInclude Include="src\pocket\math\vec.hpp" />
+    <ClInclude Include="src\pocket\math\vecmath.hpp" />
+    <ClInclude Include="src\pocket\pocket.hpp" />
+    <ClInclude Include="src\pocket\util\crash.hpp" />
+    <ClInclude Include="src\pocket\util\pkassert.h" />
+    <ClInclude Include="third_party\glad\glad.h" />
+    <ClInclude Include="third_party\KHR\khrplatform.h" />
+    <ClInclude Include="third_party\sdl2\include\begin_code.h" />
+    <ClInclude Include="third_party\sdl2\include\close_code.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_assert.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_atomic.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_audio.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_bits.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_blendmode.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_clipboard.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_config.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_config_android.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_config_iphoneos.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_config_macosx.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_config_minimal.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_config_pandora.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_config_psp.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_config_windows.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_config_winrt.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_config_wiz.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_copying.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_cpuinfo.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_egl.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_endian.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_error.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_events.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_filesystem.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_gamecontroller.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_gesture.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_haptic.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_hints.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_joystick.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_keyboard.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_keycode.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_loadso.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_locale.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_log.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_main.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_messagebox.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_metal.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_misc.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_mouse.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_mutex.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_name.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_opengl.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_opengles.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_opengles2.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_opengles2_gl2.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_opengles2_gl2ext.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_opengles2_gl2platform.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_opengles2_khrplatform.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_opengl_glext.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_pixels.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_platform.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_power.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_quit.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_rect.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_render.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_revision.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_rwops.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_scancode.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_sensor.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_shape.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_stdinc.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_surface.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_system.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_syswm.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_test.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_test_assert.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_test_common.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_test_compare.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_test_crc32.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_test_font.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_test_fuzzer.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_test_harness.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_test_images.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_test_log.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_test_md5.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_test_memory.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_test_random.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_thread.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_timer.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_touch.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_types.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_version.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_video.h" />
+    <ClInclude Include="third_party\sdl2\include\SDL_vulkan.h" />
+    <ClInclude Include="third_party\stb_image.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\pocket\components\tilemap_animator.cpp" />
+    <ClCompile Include="src\pocket\containers\string.cpp" />
+    <ClCompile Include="src\pocket\core\factory.cpp" />
+    <ClCompile Include="src\pocket\components\animator.cpp" />
+    <ClCompile Include="src\pocket\components\movement.cpp" />
+    <ClCompile Include="src\pocket\components\player_controller.cpp" />
+    <ClCompile Include="src\pocket\components\sprite.cpp" />
+    <ClCompile Include="src\pocket\components\tilemap.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\pocket\core\engine.cpp" />
+    <ClCompile Include="src\pocket\core\time.cpp" />
+    <ClCompile Include="src\pocket\core\window.cpp" />
+    <ClCompile Include="src\pocket\core\world.cpp" />
+    <ClCompile Include="src\pocket\generated\tileset_data.cpp" />
+    <ClCompile Include="src\pocket\graphics\batch.cpp" />
+    <ClCompile Include="src\pocket\graphics\graphics.cpp" />
+    <ClCompile Include="src\pocket\graphics\shader.cpp" />
+    <ClCompile Include="src\pocket\graphics\texture.cpp" />
+    <ClCompile Include="src\pocket\input\input.cpp" />
+    <ClCompile Include="src\pocket\IO\pkfile.cpp" />
+    <ClCompile Include="src\pocket\json\deserializer.cpp" />
+    <ClCompile Include="src\pocket\json\parser.cpp" />
+    <ClCompile Include="src\pocket\json\readfile.cpp" />
+    <ClCompile Include="src\pocket\math\constants.cpp" />
+    <ClCompile Include="src\pocket\math\matmath.cpp" />
+    <ClCompile Include="src\pocket\math\vecmath.cpp" />
+    <ClCompile Include="third_party\glad\glad.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SDL2.dll" />
+    <None Include="shaders\basic.frag" />
+    <None Include="shaders\basic.vert" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="SDL2.lib" />
+    <Library Include="SDL2main.lib" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
