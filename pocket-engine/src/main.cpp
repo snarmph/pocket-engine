@@ -32,10 +32,12 @@ int main(int argc, char **args) {
 
     //window::wireframe_on(true);
     
-    factory::new_tilemap("data/maps/pallet-town");
-    auto player = factory::new_player("data/player/data.json");
+    //factory::new_tilemap("data/maps/pallet-town");
+    factory::new_tilemap("data/maps/test.json");
+    //auto player = factory::new_player("data/player/data.json");
 
-    vec2f &player_pos = player->get<pk::player_controller>()->position;
+    auto player_ctrl = world.get_first<pk::player_controller>();
+    //vec2f &player_pos = player->get<pk::player_controller>()->position;
 
     u32 old = engine::get_ticks();
     gfx::basic_shader.use();
@@ -53,7 +55,7 @@ int main(int argc, char **args) {
         world.update();
 
         camera_pos = viewport.size() / 2;
-        camera_pos -= player_pos;
+        camera_pos -= player_ctrl->get_global_center();
 
         window::clear();
         batch.push_matrix(mat3x2::from_position(camera_pos));

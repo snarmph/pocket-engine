@@ -31,7 +31,7 @@ namespace mem {
         string substr(const size_t from, const size_t to);
 
         const char *cstr();
-        const std::string stdstr();
+        const std::string stdstr()  const;
         char *data();
         const char *data() const;
         size_t allocated() const;

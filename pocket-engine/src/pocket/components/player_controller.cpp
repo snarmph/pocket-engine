@@ -6,21 +6,24 @@
 #include <pocket/math/vecmath.hpp>
 
 #include "animator.hpp"
+#include "sprite.hpp"
 
 namespace pk {
     void player_controller::awake() {
+        auto spr = get<sprite>();
         auto anim = get<animator>();
         auto mov = get<movement>();
         // spr.texture = content::find_texture("walking_basic");
         //spr->texture.load("assets/walking_basic.png");
-        anim->frame = { 0.f, 0.f, 16.f, 24.f };
-        //spr->tex_coords = { 0.f, 0.f, 1 / 12.f, 1.f };
-        anim->offset_center = (vec2i)anim->frame.size() / 2;
+        spr->frame = { 0.f, 0.f, 16.f, 24.f };
+        local_center = spr->frame.size() / 2.f;
+        spr->offset.y = 8.f;
+        //local_center.y -= 8.f;
 
-        position.x = (16.f * 10) + 8.f;
-        position.y = (16.f * 10) + 3.f;
+        position.x = (16.f * 10);
+        position.y = (16.f * 10);
 
-        anim->position = position;
+        spr->position = position;
         mov->position = position;
     }
 
@@ -29,6 +32,7 @@ namespace pk {
 
     void player_controller::update() {
         auto mov = get<movement>();
+        //printf("pos: %f %f\n", position.x, position.y);
         
         // input
         input_dir.x = is_key_down(SDL_SCANCODE_RIGHT) - is_key_down(SDL_SCANCODE_LEFT);
@@ -88,6 +92,14 @@ namespace pk {
         }
 
         old_input_dir = input_dir;
+    }
+
+    const vec2f &player_controller::get_local_center() {
+        return local_center;
+    }
+
+    vec2f player_controller::get_global_center() {
+        return position + local_center;
     }
 
     void player_controller::set_moving_direction(directions dir) {

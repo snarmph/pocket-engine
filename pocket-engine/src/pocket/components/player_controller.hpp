@@ -9,6 +9,9 @@ namespace pk {
         void awake() override;
         void update() override;
 
+        const vec2f &get_local_center();
+        vec2f get_global_center();
+
     private:
         void set_moving_direction(directions dir);
         void set_idle_direction(directions dir);
@@ -17,6 +20,8 @@ namespace pk {
         bool was_moving = false;
         vec2i input_dir;
         vec2i old_input_dir;
+
+        vec2f local_center;
     
         const f32 delay = 0.1f;
         f32 cur_delay = 0.f;

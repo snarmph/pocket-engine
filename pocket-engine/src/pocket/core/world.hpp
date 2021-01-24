@@ -71,7 +71,7 @@ namespace pk {
         T *get_first();
 
         template<typename T>
-        vector<T*> &get_all();
+        vector<component*> &get_all();
 
         void destroy_entity(entity *e);
         void destroy_entity(entity *e, size_t index);
@@ -86,6 +86,7 @@ namespace pk {
         array<vector<component*>, 100> comps_alive;
         vector<entity*> ents_cache;
         vector<entity*> ents_alive;
+        bool update_sorting = false;
     };
 
     // declarations
@@ -141,7 +142,7 @@ namespace pk {
 
 
     template<typename T>
-    vector<T *> &world::get_all() {
+    vector<component *> &world::get_all() {
         auto id = types::id<T>();
         return comps_alive[id];
     }

@@ -10,6 +10,6 @@ namespace pk {
         gfx::texture_t texture;
         rectf tex_coords;
         rectf frame;
-        vec2f offset_center;
+        vec2f offset = vec2f::zero();
     };
 } // namespace pk 

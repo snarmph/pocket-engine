@@ -405,7 +405,7 @@
     <ClInclude Include="src\pocket\components\tilemap_animator.hpp">
       <Filter>File di intestazione</Filter>
     </ClInclude>
-    <ClInclude Include="src\pocket\components\map.hpp">
+    <ClInclude Include="src\pocket\components\map_manager.hpp">
       <Filter>File di intestazione</Filter>
     </ClInclude>
   </ItemGroup>
@@ -489,6 +489,9 @@
       <Filter>File di origine</Filter>
     </ClCompile>
     <ClCompile Include="src\pocket\components\tilemap_animator.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pocket\components\map_manager.cpp">
       <Filter>File di origine</Filter>
     </ClCompile>
   </ItemGroup>

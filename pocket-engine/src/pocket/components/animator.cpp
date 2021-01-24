@@ -2,21 +2,25 @@
 
 #include <pocket/core/time.hpp>
 
+#include "sprite.hpp"
+
 namespace pk {
 	void animator::add_animation(const string &name, const  vector<pair<u32, f32>> &data, const vec2i &cell_size, bool repeat) {
 		str_to_index[name] = (u32)animations.size();
 		animations.emplace_back();
 		auto &anim = animations.back();
 		anim.repeat = repeat;
+
+		auto &texture = get<sprite>()->texture;
 		
 		vec2f tex_step {
 			(f32)cell_size.x / texture.size.x,
 			(f32)cell_size.y / texture.size.y
 		};
 
-		frame = {
-			0.f, 0.f, (f32)cell_size.x, (f32)cell_size.y
-		};
+		//frame = {
+		//	0.f, 0.f, (f32)cell_size.x, (f32)cell_size.y
+		//};
 
 		u32 rows = texture.size.x / cell_size.x;
 
@@ -57,6 +61,8 @@ namespace pk {
 			}
 			anim.frame_counter = 0.f;
 		}
+		
+		update_sprite();
 	}
 
 	void animator::update() {
@@ -68,17 +74,24 @@ namespace pk {
 			anim.frame_counter -= current.duration;
 			if (++anim.frame_index == anim.frames.size())
 				anim.frame_index = anim.repeat ? 0 : (u32)(anim.frames.size() - 1);
+			update_sprite();
+			//get<sprite>()->tex_coords = anim.frames[anim.frame_index].tex_coords;
 		}
 	}
 
-	void animator::render(gfx::batcher &batch) {
+	void animator::update_sprite() {
 		auto &anim = animations[anim_index];
-		auto &tex_coords = anim.frames[anim.frame_index].tex_coords;
-		batch.push_matrix(mat3x2::from_position(position));
-			batch.set_layer(gfx::layers::objects);
-			batch.set_texture(texture);
-			batch.rect(frame - offset_center, tex_coords);
-		batch.pop_matrix();
+		get<sprite>()->tex_coords = anim.frames[anim.frame_index].tex_coords;
 	}
+
+	//void animator::render(gfx::batcher &batch) {
+	//	auto &anim = animations[anim_index];
+	//	auto &tex_coords = anim.frames[anim.frame_index].tex_coords;
+	//	batch.push_matrix(mat3x2::from_position(position));
+	//		batch.set_layer(gfx::layers::objects);
+	//		batch.set_texture(texture);
+	//		batch.rect(frame - offset, tex_coords);
+	//	batch.pop_matrix();
+	//}
 
 } // namespace pk

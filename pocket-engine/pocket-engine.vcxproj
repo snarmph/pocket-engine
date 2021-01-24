@@ -153,7 +153,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\pocket\components\map.hpp" />
+    <ClInclude Include="src\pocket\components\map_manager.hpp" />
     <ClInclude Include="src\pocket\components\tilemap_animator.hpp" />
     <ClInclude Include="src\pocket\containers\string.hpp" />
     <ClInclude Include="src\pocket\core\factory.hpp" />
@@ -286,6 +286,7 @@
     <ClInclude Include="third_party\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\pocket\components\map_manager.cpp" />
     <ClCompile Include="src\pocket\components\tilemap_animator.cpp" />
     <ClCompile Include="src\pocket\containers\string.cpp" />
     <ClCompile Include="src\pocket\core\factory.cpp" />

@@ -138,7 +138,7 @@ namespace mem {
         return buf;
     }
 
-    const std::string string::stdstr() {
+    const std::string string::stdstr() const {
         return std::string(buf, sz);
     }
 

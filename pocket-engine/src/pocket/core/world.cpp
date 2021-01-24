@@ -1,5 +1,8 @@
 #include "world.hpp"
 
+#include <algorithm>
+#include <pocket/components/sprite.hpp>
+
 namespace pk {
     void component::awake() {}
     void component::update() {}
@@ -74,6 +77,18 @@ namespace pk {
     }
 
     void world::update() {
+        if (update_sorting) {
+            update_sorting = false;
+            auto &sprites = get_all<sprite>();
+            std::sort(
+                sprites.begin(),
+                sprites.end(),
+                [](component *first, component *second) {
+                    return first->position.y < second->position.y;
+                }
+            );
+        }
+
         for(auto &alive: comps_alive) {
             for(component *c: alive) {
                 if(c->active)

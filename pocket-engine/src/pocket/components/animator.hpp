@@ -27,14 +27,17 @@ namespace pk {
 		void play(const string &anim);
 
 		void update() override;
-		void render(gfx::batcher &batch) override;
+		//void render(gfx::batcher &batch) override;
 
-		gfx::texture_t texture;
-		vec2f offset_center;
-		rectf frame;
+		//gfx::texture_t texture;
+		//rectf frame;
+		//vec2f offset = vec2f::zero();
 		vector<animation> animations;
 		map<string, u32> str_to_index;
 		u32 anim_index = 0;
+
+	private:
+		void update_sprite();
 	};
 } // namespace pk
 

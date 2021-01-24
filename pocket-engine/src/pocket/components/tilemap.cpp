@@ -20,7 +20,7 @@ namespace pk {
 
     void tilemap::load(const char *fname) {
         // 240'000 vs 25'000
-        string binary_data_fname = string(fname) + ".pocket";
+        string binary_data_fname = string(fname) + ".data";
         pocket::tilemap tilemap_data;
 
         if (fs::exists(binary_data_fname.cstr())) {

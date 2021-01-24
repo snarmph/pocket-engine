@@ -6,7 +6,7 @@ namespace pk {
         batch.push_matrix(mat3x2::from_position(position));
             batch.set_layer(gfx::layers::objects);
             batch.set_texture(texture);
-            batch.rect(frame - offset_center, tex_coords);
+            batch.rect(frame - offset, tex_coords);
         batch.pop_matrix();
     }
 } // namespace pk
