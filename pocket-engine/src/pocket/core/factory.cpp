@@ -43,6 +43,7 @@ namespace pk {
 
 		auto spr = e->add<sprite>();
 		spr->texture.load(file["texture"].as_string().c_str());
+		spr->frame = { 0.f, 0.f, (f32) cell_size.x, (f32) cell_size.y };
 		auto anim = e->add<animator>();
 		//anim->texture.load(file["texture"].as_string().c_str());
 		

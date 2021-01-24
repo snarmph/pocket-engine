@@ -24,12 +24,12 @@ namespace pk {
         inline directions get_direction();
 
         directions last_direction = directions::south;
+        f32 speed = 3.f;
     private:
         bool is_moving = false;
         vector<directions> path;
         u32 current_path = 0;
 
-        f32 speed = 3.f;
         vec2i input_dir;
         vec2f mov_dir;
         vec2f new_pos;

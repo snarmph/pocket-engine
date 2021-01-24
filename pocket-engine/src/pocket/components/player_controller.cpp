@@ -11,14 +11,11 @@
 namespace pk {
     void player_controller::awake() {
         auto spr = get<sprite>();
-        auto anim = get<animator>();
         auto mov = get<movement>();
-        // spr.texture = content::find_texture("walking_basic");
-        //spr->texture.load("assets/walking_basic.png");
-        spr->frame = { 0.f, 0.f, 16.f, 24.f };
+
         local_center = spr->frame.size() / 2.f;
-        spr->offset.y = 8.f;
-        //local_center.y -= 8.f;
+        spr->offset.x = spr->frame.w - 16.f;
+        spr->offset.y = spr->frame.h - 16.f;
 
         position.x = (16.f * 10);
         position.y = (16.f * 10);
@@ -32,8 +29,6 @@ namespace pk {
 
     void player_controller::update() {
         auto mov = get<movement>();
-        //printf("pos: %f %f\n", position.x, position.y);
-        
         // input
         input_dir.x = is_key_down(SDL_SCANCODE_RIGHT) - is_key_down(SDL_SCANCODE_LEFT);
         input_dir.y = is_key_down(SDL_SCANCODE_DOWN) - is_key_down(SDL_SCANCODE_UP);
@@ -45,10 +40,11 @@ namespace pk {
                 is_moving = should_move;
             }
             else if (should_move) {
+                // remove diagonal movement
+                input_dir.x = (input_dir.y) ? 0 : input_dir.x;
+
                 // if it's looking in a different direction then what pressed
                 if (input_dir != vec2i_from_dir(mov->last_direction)) {
-                    // remove diagonal movement
-                    input_dir.x = (input_dir.y) ? 0 : input_dir.x;
                     // get the looking direction and set the animation
                     mov->last_direction = dir_from_vec2i(input_dir);
                     set_idle_direction(mov->last_direction);
@@ -83,12 +79,10 @@ namespace pk {
         }
         
         if (is_moving) {
-            vec2f &pos = mov->position;
             // check that's still moving
             is_moving = !mov->finished();
-            if (!is_moving) {
+            if (!is_moving)
                 was_moving = true;
-            }
         }
 
         old_input_dir = input_dir;
