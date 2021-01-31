@@ -69,7 +69,8 @@ namespace gfx {
 
         void push_matrix(const mat3x2 &m);
         inline void pop_matrix() {
-            curmat = matrices.pop();
+            curmat = matrices.back();
+            matrices.pop();
         }
 
         void set_texture(const texture_t &t);

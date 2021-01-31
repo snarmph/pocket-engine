@@ -2,9 +2,10 @@
 
 #include <unordered_map>
 #include <tuple>
-#include <string>
+//#include <string>
 #include <array>
-#include <vector>
+//#include <vector>
+#include <queue>
 
 #include "vector.hpp"
 #include "string.hpp"
@@ -16,6 +17,7 @@ using std::pair;
 using mem::string;
 using std::array;
 using mem::vector;
+using std::queue;
 
 //using bitvector = std::vector<bool>;
 using bitvector = mem::vector<bool>;

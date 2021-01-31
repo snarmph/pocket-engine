@@ -14,8 +14,8 @@ namespace gfx {
 
         void load(const char *fname);
 
-        void bind();
-        void unbind();
+        //void bind();
+        //void unbind();
     };
 } // namespace gfx
 

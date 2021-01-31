@@ -2,6 +2,7 @@
 
 #include <algorithm>
 #include <pocket/components/sprite.hpp>
+#include <pocket/components/map_manager.hpp>
 
 namespace pk {
     void component::awake() {}
@@ -38,6 +39,14 @@ namespace pk {
         instance->worldref = this;
 
         return instance;
+    }
+
+    void world::set_map(map_manager *m) {
+        current_map = m;
+    }
+
+    map_manager *world::get_map() {
+        return current_map;
     }
 
     void world::destroy_entity(entity *e) {

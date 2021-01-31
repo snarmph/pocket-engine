@@ -11,7 +11,7 @@
 #define pkassert(condition, msg)                            \
             if(!(condition)) {                              \
             pkerror(#condition, __FILE__, __LINE__, msg);   \
-            exit(0);                                        \
+            exit(1);                                        \
         }
 
 #endif

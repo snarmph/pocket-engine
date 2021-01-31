@@ -10,6 +10,7 @@
 #include <pocket/components/tilemap.hpp>
 #include <pocket/components/tilemap_animator.hpp>
 #include <pocket/components/map_manager.hpp>
+#include <pocket/components/collider.hpp>
 
 #include <pocket/containers/containers.hpp>
 
@@ -22,6 +23,7 @@ namespace pk {
 		auto e = w.new_entity();
 		auto m = e->add<map_manager>();
 		m->load(fname);
+		//w.set_map(m);
 		//auto tm_anim = e->add<tilemap_animator>();
 		//auto tm = e->add<tilemap>();
 		//tm->load(fname);
@@ -72,6 +74,7 @@ namespace pk {
 		anim->play(file["initial-state"].as_string());
 
 		e->add<movement>();
+		e->add<collider>()->box = {0.f, 8.f, 16.f, 24.f};
 		e->add<player_controller>();
 		return e;
 	}
@@ -81,19 +84,21 @@ namespace pk {
 
 		auto spr = e->add<sprite>();
 		e->add<movement>();
+		e->add<collider>();
 
 		spr->texture.load("data/sprites/red.png");
-		f32 tw = spr->texture.size.x;
-		f32 th = spr->texture.size.y;
-		//spr->frame.w = 16.f;
-		//spr->frame.h = 24.f;
+		i32 tw = spr->texture.size.x;
+		i32 th = spr->texture.size.y;
+
 		spr->position = position;
 		spr->frame = {0.f, 0.f, 16.f, 24.f};
-		spr->tex_coords = { 0.f, 0.f, 16.f / tw, 24.f / th };
+
+		vec2f tex_step = spr->frame.size();
+		tex_step.x /= tw;
+		tex_step.y /= th;
+
+		spr->tex_coords = { tex_step.x, 0.f, tex_step.x, tex_step.y };
 		spr->offset.y = 8.f;
-		//spr->offset_center = (vec2i)spr->frame.size() / 2;
-		//spr->frame.x = position.x - spr->offset_center.x;
-		//spr->frame.y = position.y - spr->offset_center.y;
 
 		return e;
 	}

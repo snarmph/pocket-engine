@@ -19,6 +19,9 @@ namespace pk {
         void add_path(directions dir);
         void next_path();
 
+        void turn(const vec2i &p);
+        void turn(directions dir);
+
         bool finished();
 
         inline directions get_direction();
@@ -50,7 +53,7 @@ namespace pk {
     vec2i vec2i_from_dir(const directions dir) {
         switch (dir) {
         case directions::north:
-            return {0, -1};
+            return { 0, -1 };
             break;
         case directions::south:
             return { 0, 1 };
@@ -62,7 +65,7 @@ namespace pk {
             return { 1, 0 };
             break;
         default:
-            assert(false && "wrong direction given");
+            pkassert(false, "wrong direction given");
             // return random value just to remove warning
             return { -1, -1 };
             break;

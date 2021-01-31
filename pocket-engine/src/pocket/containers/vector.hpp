@@ -118,11 +118,11 @@ namespace mem {
                 reallocate(_allocated * 2);
         }
 
-        T pop() {
+        void pop() {
             assert(_size > 0);
-            T value = _data[--_size];
-            _data[_size].~T();
-            return value;
+            //T value = _data[--_size];
+            _data[--_size].~T();
+            //return value;
         }
 
         void erase(size_t position) {

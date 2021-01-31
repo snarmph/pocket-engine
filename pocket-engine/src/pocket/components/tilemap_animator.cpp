@@ -4,7 +4,6 @@
 
 #include <pocket/generated/tileset_data.hpp>
 
-
 namespace pk {
 	void tilemap_animator::load(pocket::tilemap *data, tilemap *map) {
 		u32 tex_cols = map->texture.size.x / (u32)map->tile_size;

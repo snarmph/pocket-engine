@@ -5,21 +5,15 @@
 
 namespace pk {
     struct map_manager : public component {
-        //void awake() override;
         void load(const string &data);
         void unload();
 
         void update() override;
         
-        //bool is_colliding(vec2f &position);
+        bool is_inside(const vec2f &pos);
+        bool is_colliding(const vec2f &pos);
 
-
+        string name = "no name";
         vector<entity*> entities;
-        /*
-        - tilemap
-        - list of enitites
-        - load / unload
-        - 
-        */
     };
 } // namespace pk 

@@ -14,7 +14,7 @@ namespace gfx {
     }
 
     texture_t::texture_t(const char *fname) {
-        load(fname);
+        //load(fname);
     }
 
     void texture_t::load(const char *fname) {
@@ -45,12 +45,12 @@ namespace gfx {
 data_error:
         stbi_image_free(data);
     }
-
-    void texture_t::bind() {
-        glBindTexture(GL_TEXTURE_2D, id);
-    }
-
-    void texture_t::unbind() {
-        glBindTexture(GL_TEXTURE_2D, 0);
-    }
+//
+//    void texture_t::bind() {
+//        glBindTexture(GL_TEXTURE_2D, id);
+//    }
+//
+//    void texture_t::unbind() {
+//        glBindTexture(GL_TEXTURE_2D, 0);
+//    }
 } // namespace gfx

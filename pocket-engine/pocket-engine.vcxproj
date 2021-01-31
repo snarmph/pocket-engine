@@ -82,11 +82,23 @@
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);src/;third_party/</IncludePath>
     <LibraryPath>$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);</LibraryPath>
+    <EnableClangTidyCodeAnalysis>false</EnableClangTidyCodeAnalysis>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <ClangTidyChecks>
+    </ClangTidyChecks>
+    <CodeAnalysisRuleSet>CppCoreCheckStlRules.ruleset</CodeAnalysisRuleSet>
+    <EnableMicrosoftCodeAnalysis>false</EnableMicrosoftCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);src/;third_party/</IncludePath>
     <LibraryPath>$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);</LibraryPath>
+    <EnableClangTidyCodeAnalysis>false</EnableClangTidyCodeAnalysis>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <ClangTidyChecks>
+    </ClangTidyChecks>
+    <CodeAnalysisRuleSet>CppCoreCheckStlRules.ruleset</CodeAnalysisRuleSet>
+    <EnableMicrosoftCodeAnalysis>false</EnableMicrosoftCodeAnalysis>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -127,6 +139,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <EnablePREfast>true</EnablePREfast>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -143,6 +156,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <EnablePREfast>true</EnablePREfast>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -153,9 +167,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\pocket\components\collider.hpp" />
     <ClInclude Include="src\pocket\components\map_manager.hpp" />
     <ClInclude Include="src\pocket\components\tilemap_animator.hpp" />
     <ClInclude Include="src\pocket\containers\string.hpp" />
+    <ClInclude Include="src\pocket\core\content.hpp" />
     <ClInclude Include="src\pocket\core\factory.hpp" />
     <ClInclude Include="src\pocket\core\engine.hpp" />
     <ClInclude Include="src\pocket\core\time.hpp" />
@@ -193,6 +209,7 @@
     <ClInclude Include="src\pocket\math\vec.hpp" />
     <ClInclude Include="src\pocket\math\vecmath.hpp" />
     <ClInclude Include="src\pocket\pocket.hpp" />
+    <ClInclude Include="src\pocket\threads\thread_pool.hpp" />
     <ClInclude Include="src\pocket\util\crash.hpp" />
     <ClInclude Include="src\pocket\util\pkassert.h" />
     <ClInclude Include="third_party\glad\glad.h" />
@@ -289,6 +306,7 @@
     <ClCompile Include="src\pocket\components\map_manager.cpp" />
     <ClCompile Include="src\pocket\components\tilemap_animator.cpp" />
     <ClCompile Include="src\pocket\containers\string.cpp" />
+    <ClCompile Include="src\pocket\core\content.cpp" />
     <ClCompile Include="src\pocket\core\factory.cpp" />
     <ClCompile Include="src\pocket\components\animator.cpp" />
     <ClCompile Include="src\pocket\components\movement.cpp" />

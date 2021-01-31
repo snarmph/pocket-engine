@@ -17,6 +17,7 @@ namespace pk {
         rewind(handler);
 
         char *buf = (char *) malloc(sizeof(char) * (string_size + 1));
+        pkassert(buf, "couldn't allocate buffer");
         read_size = fread(buf, sizeof(char), string_size, handler);
         buf[read_size] = '\0';
         

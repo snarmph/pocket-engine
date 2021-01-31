@@ -3,15 +3,15 @@
 using pk::factory;
 using pk::time;
 
-#define ZOOM_LEVEL 2
+constexpr int zoom_level = 4;
 
 int main(int argc, char **args) {
-    recti viewport {0, 0, 160, 144};
+    const recti viewport {0, 0, 160, 144};
 
     engine::init();
     window::create(
         "Pocket Engine",
-        viewport.size() * ZOOM_LEVEL
+        viewport.size() * zoom_level
     );
     gfx::init();
     input::init();
@@ -30,25 +30,26 @@ int main(int argc, char **args) {
 
     vec2f camera_pos {-8.f, -16.f};
 
+    window::vsync_on(true);
     //window::wireframe_on(true);
     
-    //factory::new_tilemap("data/maps/pallet-town");
     factory::new_tilemap("data/maps/test.json");
+    factory::new_tilemap("data/maps/other.json");
     //auto player = factory::new_player("data/player/data.json");
 
     auto player_ctrl = world.get_first<pk::player_controller>();
-    //vec2f &player_pos = player->get<pk::player_controller>()->position;
 
     u32 old = engine::get_ticks();
     gfx::basic_shader.use();
     gfx::basic_shader.set("projection", ortho);
+    
     while(true) {
         u32 now = engine::get_ticks();
         u32 diff = now - old;
         old = now;
         time::dt = diff / 1000.f;
         time::fps = 1.f / time::dt;
-        //printf("fps: %f         \r", time::fps);
+        //printf("dt: %u         \r", diff);
 
         engine::manage_events();
 
@@ -64,7 +65,7 @@ int main(int argc, char **args) {
         
         batch.render();
         batch.clear();
-
+        
         window::swap_buffers();
     }
 }

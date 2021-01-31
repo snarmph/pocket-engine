@@ -7,6 +7,8 @@
 
 #include "animator.hpp"
 #include "sprite.hpp"
+#include "map_manager.hpp"
+#include "collider.hpp"
 
 namespace pk {
     void player_controller::awake() {
@@ -46,7 +48,7 @@ namespace pk {
                 // if it's looking in a different direction then what pressed
                 if (input_dir != vec2i_from_dir(mov->last_direction)) {
                     // get the looking direction and set the animation
-                    mov->last_direction = dir_from_vec2i(input_dir);
+                    mov->turn(input_dir);
                     set_idle_direction(mov->last_direction);
                     // reset the delay
                     cur_delay = 0.f;
@@ -68,7 +70,13 @@ namespace pk {
             if(is_moving) {
                 // remove diagonal movement
                 input_dir.x = (input_dir.y) ? 0 : input_dir.x;
-                mov->add_path(input_dir);
+
+                /*
+                * check that the player is still inside the map
+                * if its not, check all the maps and find the one its inside
+                */
+                if (!check_map_change())
+                    mov->add_path(input_dir);
                 set_moving_direction(mov->last_direction);
             }
             // if it was moving but now has stopped
@@ -86,6 +94,35 @@ namespace pk {
         }
 
         old_input_dir = input_dir;
+    }
+
+    bool player_controller::check_map_change() {
+        vec2f new_pos = position + input_dir * 16.f;
+
+        map_manager *mm = entref->worldref->get_map();
+        if (mm->is_inside(new_pos))
+            return false;
+
+        auto &all_maps = entref->worldref->get_all<map_manager>();
+        for (component *m : all_maps) {
+            map_manager *current = (map_manager *)m;
+            // if its the current map, skip
+            if (current == mm)
+                continue;
+            if (current->is_inside(new_pos)) {
+                if (current->is_colliding(new_pos)) {
+                    get<movement>()->turn(input_dir);
+                    input_dir = vec2i::zero();
+                    return true;
+                }
+                printf("entering %s\n", current->name.cstr());
+                entref->worldref->set_map(current);
+                return true;
+            }
+        }
+
+        pkassert(false, "player moved outside of any map");
+        return false;
     }
 
     const vec2f &player_controller::get_local_center() {

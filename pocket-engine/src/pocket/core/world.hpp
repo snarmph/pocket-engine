@@ -13,6 +13,8 @@ namespace pk {
     struct entity;
     struct component;
 
+    struct map_manager;
+
     struct types {
     private:
         static inline uint8_t counter = 0;
@@ -57,6 +59,9 @@ namespace pk {
 
         template<typename T>
         T *add();
+
+        template<typename T>
+        bool has();
     };
 
     struct world {
@@ -73,6 +78,9 @@ namespace pk {
         template<typename T>
         vector<component*> &get_all();
 
+        void set_map(map_manager *m);
+        map_manager *get_map();
+
         void destroy_entity(entity *e);
         void destroy_entity(entity *e, size_t index);
 
@@ -82,11 +90,13 @@ namespace pk {
         void update();
         void render(gfx::batcher &batch);
 
+        bool update_sorting = false;
+    private:
         array<vector<component*>, 100> comps_cache;
         array<vector<component*>, 100> comps_alive;
         vector<entity*> ents_cache;
         vector<entity*> ents_alive;
-        bool update_sorting = false;
+        map_manager *current_map = nullptr;
     };
 
     // declarations
@@ -100,12 +110,21 @@ namespace pk {
         for(auto &c: comps)
             if(c->id == types::id<T>())
                 return (T*)c;
-        pkassert(false, "didn't find entity");
+        pkassert(false, "didn't find component in entity");
     }
 
     template<typename T>
     T *entity::add() {
         return worldref->add<T>(this);
+    }
+
+    template<typename T>
+    bool entity::has() {
+        uint8_t id = types::id<T>();
+        for (auto &c : comps)
+            if (c->id == id)
+                return true;
+        return false;
     }
 
     template<typename T>

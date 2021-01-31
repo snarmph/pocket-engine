@@ -4,9 +4,11 @@
 #include <pocket/core/time.hpp>
 #include <pocket/input/input.hpp>
 #include <pocket/math/vecmath.hpp>
+#include <pocket/util/pkassert.h>
 
 #include "sprite.hpp"
 #include "tilemap.hpp"
+#include "map_manager.hpp"
 
 namespace {
     constexpr f32 base_speed = 20.f;
@@ -45,6 +47,9 @@ namespace pk {
     }
 
     void movement::add_path(const vec2i &dir) {
+        bool is_first_path = path.size() == 0;
+
+        // if its moving more than a single block, add all the movements one by one
         if (math::mag2(dir) > 1) {
             i32 absx = abs(dir.x);
             i32 absy = abs(dir.y);
@@ -54,11 +59,10 @@ namespace pk {
                 add_path(newdir);
         }
         else {
-            //path.emplace_back(dir);
             path.emplace_back(dir_from_vec2i(dir));
         }
         // if it's the first path added
-        if (path.size() == 1)
+        if (is_first_path)
             next_path();
     }
 
@@ -82,7 +86,7 @@ namespace pk {
                 break;
             case pk::directions::error:
             default:
-                assert(false && "directions should not be error");
+                pkassert(false, "directions should not be error");
                 break;
         }
     }
@@ -92,12 +96,8 @@ namespace pk {
         new_pos = position + (mov_dir * 16.f);
         last_direction = get_direction();
 
-        auto tm = entref->worldref->get_first<tilemap>();
-        i32 index = tm->position_to_index(new_pos);
-        if (index == -1)
-            return;
-
-        if (tm->is_colliding(index)) {
+        map_manager *mm = entref->worldref->get_map();
+        if (mm->is_colliding(new_pos)) {
             new_pos = position;
             current_path++;
             // if finished the paths
@@ -110,6 +110,14 @@ namespace pk {
                 next_path();
             }
         }
+    }
+
+    void movement::turn(const vec2i &p) {
+        turn(dir_from_vec2i(p));
+    }
+
+    void movement::turn(directions dir) {
+        last_direction = dir;
     }
 
     bool movement::finished() {

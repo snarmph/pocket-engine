@@ -3,6 +3,7 @@
 #include <glad/glad.h>
 #include <pocket/graphics/graphics.hpp>
 #include <pocket/core/types.hpp>
+#include <pocket/util/pkassert.h>
 
 namespace gfx {
     draw_batch::draw_batch() {
@@ -46,7 +47,7 @@ namespace gfx {
     }
 
     void draw_batch::quad_vector(const mem::vector<rectf> &frames, const mem::vector<rectf> &tex_coords, const mat3x2 &m) {
-        assert(frames.size() == tex_coords.size() && "frames size and texcoords size should be the same");
+        pkassert(frames.size() == tex_coords.size(), "frames size and texcoords size should be the same");
         indices.reserve(6 * frames.size());
         vertices.reserve(4 * frames.size());
 

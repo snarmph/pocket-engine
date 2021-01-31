@@ -408,6 +408,15 @@
     <ClInclude Include="src\pocket\components\map_manager.hpp">
       <Filter>File di intestazione</Filter>
     </ClInclude>
+    <ClInclude Include="src\pocket\core\content.hpp">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pocket\threads\thread_pool.hpp">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pocket\components\collider.hpp">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\pocket\graphics\batch.cpp">
@@ -492,6 +501,9 @@
       <Filter>File di origine</Filter>
     </ClCompile>
     <ClCompile Include="src\pocket\components\map_manager.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pocket\core\content.cpp">
       <Filter>File di origine</Filter>
     </ClCompile>
   </ItemGroup>

@@ -12,6 +12,8 @@ namespace pk {
         const vec2f &get_local_center();
         vec2f get_global_center();
 
+        bool check_map_change();
+
     private:
         void set_moving_direction(directions dir);
         void set_idle_direction(directions dir);

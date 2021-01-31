@@ -37,7 +37,7 @@ namespace pk {
 		u32 anim_index = 0;
 
 	private:
-		void update_sprite();
+		void update_sprite(animation &anim);
 	};
 } // namespace pk
 

@@ -46,7 +46,7 @@ namespace pk {
     rectf tilemap::get_bounds() {
         return {
             position.x, position.y,
-            width * tile_size, height * tile_size
+            width * tile_size - 1.f, height * tile_size - 1.f
         };
     }
     

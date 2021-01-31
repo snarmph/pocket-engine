@@ -2,6 +2,7 @@
 
 #include <filesystem>
 #include <pocket/debug/benchmark.hpp>
+#include <pocket/util/pkassert.h>
 
 #include "tilemap_animator.hpp"
 
@@ -59,7 +60,7 @@ namespace pk {
         width = (u32)map["width"].as_number();
         height = (u32)map["height"].as_number();
 
-        assert(map["layers"].as_array().size() <= 4 && "too many layers in tilemap");
+        pkassert(map["layers"].as_array().size() <= 4, "too many layers in tilemap");
 
         for (size_t i = 0; i < 3; i++) {
             const auto &data = map["layers"][i].as_array();
@@ -104,7 +105,7 @@ namespace pk {
         width = data->width;
         height = data->height;
 
-        assert(data->layers.size() == 4 && "wrong number of layers in tilemap");
+        pkassert(data->layers.size() == 4, "wrong number of layers in tilemap");
 
         for (size_t i = 0; i < 3; i++) {
             auto &layer = data->layers[i];
