@@ -32,8 +32,8 @@ namespace pk {
     void player_controller::update() {
         auto mov = get<movement>();
         // input
-        input_dir.x = is_key_down(SDL_SCANCODE_RIGHT) - is_key_down(SDL_SCANCODE_LEFT);
-        input_dir.y = is_key_down(SDL_SCANCODE_DOWN) - is_key_down(SDL_SCANCODE_UP);
+        input_dir.x = is_key_down(SAPP_KEYCODE_RIGHT) - is_key_down(SAPP_KEYCODE_LEFT);
+        input_dir.y = is_key_down(SAPP_KEYCODE_DOWN) - is_key_down(SAPP_KEYCODE_UP);
 
         // check that its not currently moving
         if(!is_moving) {

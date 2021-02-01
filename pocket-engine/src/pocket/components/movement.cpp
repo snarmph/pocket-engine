@@ -21,7 +21,7 @@ namespace pk {
     }
 
     void movement::update() {
-        if (!finished()) {
+         if (!finished()) {
             entref->worldref->update_sorting = true;
             f32 vel = speed * base_speed * time::dt;
             position += mov_dir * vel;

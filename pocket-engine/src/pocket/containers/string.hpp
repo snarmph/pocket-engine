@@ -22,9 +22,6 @@ namespace mem {
         string(const char *cstr);
         string(const std::string &stdstr);
 
-        template<typename T>
-        string(const T &other) = delete;
-
         string &assing(const char *cstr);
         string &copy(const string &other);
 

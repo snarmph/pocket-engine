@@ -16,15 +16,11 @@
 #include <pocket/core/factory.hpp>
 #include <pocket/core/time.hpp>
 #include <pocket/core/types.hpp>
-#include <pocket/core/window.hpp>
 #include <pocket/core/world.hpp>
 
 #include <pocket/debug/benchmark.hpp>
 
 #include <pocket/graphics/batch.hpp>
-#include <pocket/graphics/gfx_api.h>
-#include <pocket/graphics/graphics.hpp>
-#include <pocket/graphics/shader.hpp>
 #include <pocket/graphics/texture.hpp>
 
 #include <pocket/input/input.hpp>
