@@ -17,6 +17,16 @@
   <body>
     <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" tabindex=-1></canvas>
     <script type='text/javascript'>
+      document.querySelector("canvas").addEventListener("click", () => {
+        document.querySelector("canvas").focus();
+      })
+
+      document.querySelector("canvas").addEventListener("keydown", (e)=>{
+        if (e.key === 'Tab') {
+          e.preventDefault();
+        }
+      });
+
       var Module = {
         preRun: [],
         postRun: [],
