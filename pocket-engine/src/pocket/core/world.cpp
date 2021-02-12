@@ -1,8 +1,10 @@
 #include "world.hpp"
 
 #include <algorithm>
+
 #include <pocket/components/sprite.hpp>
 #include <pocket/components/map_manager.hpp>
+#include <pocket/debug/benchmark.hpp>
 
 namespace pk {
     void component::awake() {}
@@ -107,11 +109,17 @@ namespace pk {
     }
 
     void world::render(gfx::batcher &batch) {
+        static debug::benchmark<debug::micro> timer;
+        static debug::median median;
+
+        timer.start();
         for(auto &alive: comps_alive) {
             for(component *c: alive) {
                 if(c->active)
                     c->render(batch);
             }
         }
+        median.add(timer.end(false));
+        printf("median: %f        \r", median.get());
     }
 } // namespace pk

@@ -92,11 +92,31 @@ namespace pk {
 
         bool update_sorting = false;
     private:
-        array<vector<component*>, 100> comps_cache;
-        array<vector<component*>, 100> comps_alive;
+        //array<vector<component*>, 100> comps_cache;
+        //array<vector<component*>, 100> comps_alive;
+        vector<vector<component*>> comps_cache;
+        vector<vector<component*>> comps_alive;
         vector<entity*> ents_cache;
         vector<entity*> ents_alive;
         map_manager *current_map = nullptr;
+        
+        vector<component *> &get_cache(uint8_t id) {
+            size_t sz = comps_cache.size();
+            if (id >= sz) {
+                printf("%zu is not big enough for %u, resizing cache to %zu\n", sz, id, sz + (id - (uint8_t)sz + 1));
+                comps_cache.resize(sz + (id - (uint8_t)sz + 1));
+            }
+            return comps_cache[id];
+        }
+
+        vector<component *> &get_alive(uint8_t id) {
+            size_t sz = comps_alive.size();
+            if (id >= sz) {
+                printf("%zu is not big enough for %u, resizing alive to %zu\n", sz, id, sz + (id - (uint8_t)sz + 1));
+                comps_alive.resize(sz + (id - (uint8_t)sz + 1));
+            }
+            return comps_alive[id];
+        }
     };
 
     // declarations
@@ -130,8 +150,8 @@ namespace pk {
     template<typename T>
     T *world::add(entity *e) {
         auto id = types::id<T>();
-        auto &cache = comps_cache[id];
-        auto &alive = comps_alive[id];
+        auto &cache = get_cache(id);
+        auto &alive = get_alive(id);
 
         T *instance;
         if(cache.size() > 0) {
