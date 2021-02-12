@@ -5,6 +5,7 @@
 #include <cstdlib>
 #include <cassert>
 #include <new>
+#include <iostream>
 
 namespace mem {
     template<typename T>
@@ -193,8 +194,16 @@ namespace mem {
         bool empty() {
             return _size == 0;
         }
-
     };
+
+    template<typename T>
+    std::ostream &operator<<(std::ostream &os, const vector<T> &vec) {
+        os << "[ ";
+        for (auto &v : vec)
+            os << v << " ";
+        os << "]";
+        return os;
+    }
 } // mem
 
 #endif // VECTOR_HPP

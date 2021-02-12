@@ -2,13 +2,6 @@
 #define INPUT_HPP
 
 #include <pocket/core/types.hpp>
-#ifdef __linux__ 
-#include <SDL2/SDL.h>
-#elif _WIN32
-#include <sdl2/include/SDL.h>
-#else
-#error "PLATFORM NOT SUPPORTED"
-#endif
 
 namespace input {
     void init();

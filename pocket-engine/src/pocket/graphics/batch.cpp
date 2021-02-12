@@ -1,22 +1,23 @@
 #include "batch.hpp"
 
-#include <glad/glad.h>
-#include <pocket/graphics/graphics.hpp>
 #include <pocket/core/types.hpp>
 #include <pocket/util/pkassert.h>
 
+constexpr int max_vertices = 60000;
+constexpr int max_indices = 30000;
+
 namespace gfx {
     draw_batch::draw_batch() {
-        glGenVertexArrays(1, &vao);
-        glGenBuffers(1, &vbo);
-        glGenBuffers(1, &ebo);
+        //glGenVertexArrays(1, &vao);
+        //glGenBuffers(1, &vbo);
+        //glGenBuffers(1, &ebo);
     }
 
     draw_batch::~draw_batch() {
         printf("deleting a batch\n");
-        glDeleteVertexArrays(1, &vao);
-        glDeleteBuffers(1, &vbo);
-        glDeleteBuffers(1, &ebo);
+        //glDeleteVertexArrays(1, &vao);
+        //glDeleteBuffers(1, &vbo);
+        //glDeleteBuffers(1, &ebo);
     }
 
     void draw_batch::quad(const rectf &frame, const rectf &tex_coordinate, const mat3x2 &m) {
@@ -77,34 +78,20 @@ namespace gfx {
         }
     }
 
-    void draw_batch::render() {
-        glBindVertexArray(vao);
+    void draw_batch::render(batcher &b) {
+        sg_update_buffer(vbuf, vertices.data(), vertices.size() * sizeof(vertex));
+        sg_update_buffer(ibuf, indices.data(), indices.size() * sizeof(u32));
+        b.bind.vertex_buffers[0] = vbuf;
+        b.bind.index_buffer = ibuf;
 
-        glBindBuffer(GL_ARRAY_BUFFER, vbo);
-        glBufferData(GL_ARRAY_BUFFER, sizeof(vertex) * vertices.size(), vertices.data(), GL_STATIC_DRAW);
-        glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(vertex), (void *)0);
-        glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(vertex), (void *)(sizeof(vertex::pos)));
-        glEnableVertexAttribArray(0);
-        glEnableVertexAttribArray(1);
-
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
-        glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(u32) * indices.size(), indices.data(), GL_STATIC_DRAW);
-
-        for (auto &in : info) {
-            glBindTexture(GL_TEXTURE_2D, in.tex_id);
-            u32 index_start = in.offset * 6;
-            u32 index_count = in.elements * 6;
-            glDrawElementsInstanced(
-                GL_TRIANGLES, 
-                (i32)index_count,
-                GL_UNSIGNED_INT, 
-                (void *)(sizeof(u32) * index_start),
-                1
-            );
-            glBindTexture(GL_TEXTURE_2D, 0);
+        for (auto &cmd : info) {
+            if (cmd.img.id != 0)
+                b.bind.fs_images[0] = cmd.img;
+            else
+                b.bind.fs_images[0] = b.default_img;
+            sg_apply_bindings(b.bind);
+            sg_draw(cmd.base_index, cmd.num_indices, 1);
         }
-
-        glBindVertexArray(0);
     }
 
     void draw_batch::reset() {
@@ -114,7 +101,105 @@ namespace gfx {
         info.emplace_back();
     }
 
-    batcher::batcher() {
+    // == BATCHER ==================================
+
+    void batcher::init() {
+        sg_buffer_desc vbuf_d{};
+        vbuf_d.size = max_vertices * sizeof(vertex);
+        vbuf_d.type = SG_BUFFERTYPE_VERTEXBUFFER;
+        vbuf_d.usage = SG_USAGE_STREAM;
+
+        sg_buffer_desc ibuf_d{};
+        ibuf_d.size = max_indices * sizeof(u32);
+        ibuf_d.type = SG_BUFFERTYPE_INDEXBUFFER;
+        ibuf_d.usage = SG_USAGE_STREAM;
+
+        for(auto &layer: batch_layers) {
+            layer.vbuf = sg_make_buffer(vbuf_d);
+            layer.ibuf = sg_make_buffer(ibuf_d);
+        }
+
+        u32 pixels[1]{ 0xFF'FF'FF'FF };
+
+        sg_image_desc imgd{};
+        imgd.width = 1;
+        imgd.height = 1;
+        imgd.content.subimage[0][0].ptr = pixels;
+        imgd.content.subimage[0][0].size = sizeof(pixels);
+        default_img = sg_make_image(imgd);
+
+        sg_shader_desc sd{};
+
+        sd.vs.source = R"(#version 330 core
+layout (location = 0) in vec2 vert;
+layout (location = 1) in vec2 in_texc;
+layout (location = 2) in vec3 in_col;
+
+uniform mat4 ortho;
+
+out vec2 texc;
+out vec3 col;
+
+void main() {
+    gl_Position = ortho * vec4(vert, 0.0, 1.0);
+    texc = in_texc;
+    col = in_col;
+}
+)";
+        sd.fs.source = R"(#version 330 core
+in vec2 texc;
+in vec3 col;
+uniform sampler2D tex;
+
+out vec4 frag_col;
+
+void main() {
+    frag_col = texture(tex, texc) + vec4(col, 0.0);
+    if(frag_col.a < 1.0)
+        discard;
+}
+)";
+        
+        auto *ub = &sd.vs.uniform_blocks[0];
+        ub->size = sizeof(mat4);
+        ub->uniforms[0].name = "ortho";
+        ub->uniforms[0].type = SG_UNIFORMTYPE_MAT4;
+        ub->uniforms[0].array_count = 1;
+
+        sd.fs.images[0].name = "tex";
+        sd.fs.images[0].type = SG_IMAGETYPE_2D;
+        sd.fs.images[0].sampler_type = SG_SAMPLERTYPE_FLOAT;
+
+        shader = sg_make_shader(sd);
+
+        sg_pipeline_desc pd{};
+        pd.shader = shader;
+        pd.layout.buffers[0].stride = sizeof(sok_vertex);
+        {
+            auto *pos = &pd.layout.attrs[0];
+            pos->offset = offsetof(sok_vertex, pos);
+            pos->format = SG_VERTEXFORMAT_FLOAT2;
+        }
+        {
+            auto *uv = &pd.layout.attrs[1];
+            uv->offset = offsetof(sok_vertex, texc);
+            uv->format = SG_VERTEXFORMAT_FLOAT2;
+        }
+        {
+            auto *rgba = &pd.layout.attrs[2];
+            rgba->offset = offsetof(sok_vertex, col);
+            rgba->format = SG_VERTEXFORMAT_FLOAT3;
+        }
+
+        pd.index_type = SG_INDEXTYPE_UINT32;
+
+        pip = sg_make_pipeline(pd);
+
+        pass.colors[0] = {
+            SG_ACTION_CLEAR,
+            {0.1f, 0.1f, 0.1f, 1.f}
+        };
+
         for (auto &layer : batch_layers)
             layer.info.emplace_back();
     }
@@ -125,25 +210,35 @@ namespace gfx {
     }
 
     void batcher::set_texture(const texture_t &t) {
-        u32 &current_tex_id = current_info().tex_id;
-        if (current_tex_id == 0) {
-            current_tex_id = t.id;
+        sg_image &current_img = current_info().img;
+        if (current_img.id == 0) {
+            current_img = t.image_id;
         }
-        else if (current_tex_id != t.id) {
+        else if (current_img.id != t.image_id.id) {
             // bit of a mouthful, divided in multiple lines for
             // readability
             current_batch()
                 .info
                 .emplace_back(
-                    current_info().offset + current_info().elements,
-                    t.id
-                );
+                current_info().base_index + current_info().num_indices,
+                t.image_id
+            );
         }
     }
 
     void batcher::render() {
+        sgl_viewport(0, 0, sapp_width(), sapp_height(), true); 
+        sg_begin_default_pass(pass, sapp_width(), sapp_height());
+
+        sg_apply_pipeline(pip);
+
+        sg_apply_uniforms(SG_SHADERSTAGE_VS, 0, uniform_mat.m, sizeof(mat4));
+
         for (auto &layer : batch_layers)
-            layer.render();
+            layer.render(*this);
+
+        sg_end_pass();
+        sg_commit();
     }
 
     void batcher::clear() {

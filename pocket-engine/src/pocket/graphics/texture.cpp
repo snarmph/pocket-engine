@@ -1,17 +1,11 @@
 #include "texture.hpp"
 
-#include "gfx_api.h"
-
 #define STB_IMAGE_IMPLEMENTATION
 #include <stb_image.h>
 
 #include <pocket/util/crash.hpp>
 
 namespace gfx {
-
-    texture_t::texture_t() {
-        id = 0;
-    }
 
     texture_t::texture_t(const char *fname) {
         //load(fname);
@@ -25,7 +19,17 @@ namespace gfx {
             crash(data_error, "couldn't load image [ %s ]", fname);
         }
         else {
-            
+            sg_image_desc desc{};
+
+            desc.width = size.x;
+            desc.height = size.y;
+            desc.pixel_format = SG_PIXELFORMAT_RGBA8;
+            desc.content.subimage[0][0].ptr = data;
+            desc.content.subimage[0][0].size = size.x * size.y * channels;
+
+            image_id = sg_make_image(desc);
+
+            /*
             GLenum format = (channels==4) ? GL_RGBA : GL_RGB;
             
             glGenTextures(1, &id);
@@ -38,7 +42,7 @@ namespace gfx {
             glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, size.x, size.y, 0, format, GL_UNSIGNED_BYTE, data);
 
             glBindTexture(GL_TEXTURE_2D, 0);
-
+            */
             printf("loaded [ %s ]\n", fname);
         }
 
