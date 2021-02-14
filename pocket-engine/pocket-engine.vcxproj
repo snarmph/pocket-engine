@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -191,9 +191,42 @@
     <ClCompile Include="src\pocket\math\constants.cpp" />
     <ClCompile Include="src\pocket\math\matmath.cpp" />
     <ClCompile Include="src\pocket\math\vecmath.cpp" />
+    <ClCompile Include="src\pocket\scripts\script_manager.cpp" />
+    <ClCompile Include="third_party\lua\lapi.c" />
+    <ClCompile Include="third_party\lua\lauxlib.c" />
+    <ClCompile Include="third_party\lua\lbaselib.c" />
+    <ClCompile Include="third_party\lua\lcode.c" />
+    <ClCompile Include="third_party\lua\ldblib.c" />
+    <ClCompile Include="third_party\lua\ldebug.c" />
+    <ClCompile Include="third_party\lua\ldo.c" />
+    <ClCompile Include="third_party\lua\ldump.c" />
+    <ClCompile Include="third_party\lua\lfunc.c" />
+    <ClCompile Include="third_party\lua\lgc.c" />
+    <ClCompile Include="third_party\lua\linit.c" />
+    <ClCompile Include="third_party\lua\liolib.c" />
+    <ClCompile Include="third_party\lua\llex.c" />
+    <ClCompile Include="third_party\lua\lmathlib.c" />
+    <ClCompile Include="third_party\lua\lmem.c" />
+    <ClCompile Include="third_party\lua\loadlib.c" />
+    <ClCompile Include="third_party\lua\lobject.c" />
+    <ClCompile Include="third_party\lua\lopcodes.c" />
+    <ClCompile Include="third_party\lua\loslib.c" />
+    <ClCompile Include="third_party\lua\lparser.c" />
+    <ClCompile Include="third_party\lua\lstate.c" />
+    <ClCompile Include="third_party\lua\lstring.c" />
+    <ClCompile Include="third_party\lua\lstrlib.c" />
+    <ClCompile Include="third_party\lua\ltable.c" />
+    <ClCompile Include="third_party\lua\ltablib.c" />
+    <ClCompile Include="third_party\lua\ltm.c" />
+    <ClCompile Include="third_party\lua\lundump.c" />
+    <ClCompile Include="third_party\lua\lvm.c" />
+    <ClCompile Include="third_party\lua\lzio.c" />
+    <ClCompile Include="third_party\lua\print.c" />
     <ClCompile Include="third_party\sokol\sokol.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="data\scripts\init.lua" />
+    <None Include="data\scripts\main.lua" />
     <None Include="shaders\basic.frag" />
     <None Include="shaders\basic.vert" />
   </ItemGroup>
@@ -235,9 +268,34 @@
     <ClInclude Include="src\pocket\math\vec.hpp" />
     <ClInclude Include="src\pocket\math\vecmath.hpp" />
     <ClInclude Include="src\pocket\pocket.hpp" />
+    <ClInclude Include="src\pocket\scripts\script_manager.hpp" />
     <ClInclude Include="src\pocket\threads\thread_pool.hpp" />
     <ClInclude Include="src\pocket\util\crash.hpp" />
     <ClInclude Include="src\pocket\util\pkassert.h" />
+    <ClInclude Include="third_party\lua\lapi.h" />
+    <ClInclude Include="third_party\lua\lauxlib.h" />
+    <ClInclude Include="third_party\lua\lcode.h" />
+    <ClInclude Include="third_party\lua\ldebug.h" />
+    <ClInclude Include="third_party\lua\ldo.h" />
+    <ClInclude Include="third_party\lua\lfunc.h" />
+    <ClInclude Include="third_party\lua\lgc.h" />
+    <ClInclude Include="third_party\lua\llex.h" />
+    <ClInclude Include="third_party\lua\llimits.h" />
+    <ClInclude Include="third_party\lua\lmem.h" />
+    <ClInclude Include="third_party\lua\lobject.h" />
+    <ClInclude Include="third_party\lua\lopcodes.h" />
+    <ClInclude Include="third_party\lua\lparser.h" />
+    <ClInclude Include="third_party\lua\lstate.h" />
+    <ClInclude Include="third_party\lua\lstring.h" />
+    <ClInclude Include="third_party\lua\ltable.h" />
+    <ClInclude Include="third_party\lua\ltm.h" />
+    <ClInclude Include="third_party\lua\lua.h" />
+    <ClInclude Include="third_party\lua\lua.hpp" />
+    <ClInclude Include="third_party\lua\luaconf.h" />
+    <ClInclude Include="third_party\lua\lualib.h" />
+    <ClInclude Include="third_party\lua\lundump.h" />
+    <ClInclude Include="third_party\lua\lvm.h" />
+    <ClInclude Include="third_party\lua\lzio.h" />
     <ClInclude Include="third_party\sokol\sokol.h" />
     <ClInclude Include="third_party\sokol\sokol_app.h" />
     <ClInclude Include="third_party\sokol\sokol_gfx.h" />

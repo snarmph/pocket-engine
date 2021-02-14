@@ -109,17 +109,11 @@ namespace pk {
     }
 
     void world::render(gfx::batcher &batch) {
-        static debug::benchmark<debug::micro> timer;
-        static debug::median median;
-
-        timer.start();
         for(auto &alive: comps_alive) {
             for(component *c: alive) {
                 if(c->active)
                     c->render(batch);
             }
         }
-        median.add(timer.end(false));
-        printf("median: %f        \r", median.get());
     }
 } // namespace pk

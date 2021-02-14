@@ -97,8 +97,7 @@ namespace gfx {
         vector<u32> indices;
         vector<batch_info> info;
 
-        draw_batch();
-        ~draw_batch();
+        draw_batch() = default;
         draw_batch(const draw_batch& other) = delete;
         void reset();
 
@@ -140,16 +139,15 @@ namespace gfx {
         }
 
         inline void rect(const rectf &frame, const rectf &tex_coordinate = rectf()) {
-            current_info().base_index = current_batch().indices.size();
+            current_info().base_index = (u32)current_batch().indices.size();
             current_batch().quad(frame, tex_coordinate, curmat);
             current_info().num_indices += 6;
         }
 
         inline void rect_vec(const vector<rectf> &frames, const vector<rectf> &texcoords) {
-            current_info().base_index = current_batch().indices.size();
+            current_info().base_index = (u32)current_batch().indices.size();
             current_batch().quad_vector(frames, texcoords, curmat);
-            current_info().num_indices += current_batch().indices.size() - current_info().base_index;
-            //current_info().elements += (u32)frames.size();
+            current_info().num_indices += (u32)current_batch().indices.size() - current_info().base_index;
         }
 
         void render();

@@ -101,20 +101,16 @@ namespace pk {
         map_manager *current_map = nullptr;
         
         vector<component *> &get_cache(uint8_t id) {
-            size_t sz = comps_cache.size();
-            if (id >= sz) {
-                printf("%zu is not big enough for %u, resizing cache to %zu\n", sz, id, sz + (id - (uint8_t)sz + 1));
-                comps_cache.resize(sz + (id - (uint8_t)sz + 1));
-            }
+            if (id >= comps_cache.size())
+                comps_cache.emplace_back();
+            pkassert(id < comps_cache.size(), "the id is bigger then the cache size");
             return comps_cache[id];
         }
 
         vector<component *> &get_alive(uint8_t id) {
-            size_t sz = comps_alive.size();
-            if (id >= sz) {
-                printf("%zu is not big enough for %u, resizing alive to %zu\n", sz, id, sz + (id - (uint8_t)sz + 1));
-                comps_alive.resize(sz + (id - (uint8_t)sz + 1));
-            }
+            if (id >= comps_alive.size())
+                comps_alive.emplace_back();
+            pkassert(id < comps_alive.size(), "the id is bigger then the alive size");
             return comps_alive[id];
         }
     };

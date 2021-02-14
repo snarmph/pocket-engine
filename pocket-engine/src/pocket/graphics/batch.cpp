@@ -7,19 +7,6 @@ constexpr int max_vertices = 60000;
 constexpr int max_indices = 30000;
 
 namespace gfx {
-    draw_batch::draw_batch() {
-        //glGenVertexArrays(1, &vao);
-        //glGenBuffers(1, &vbo);
-        //glGenBuffers(1, &ebo);
-    }
-
-    draw_batch::~draw_batch() {
-        printf("deleting a batch\n");
-        //glDeleteVertexArrays(1, &vao);
-        //glDeleteBuffers(1, &vbo);
-        //glDeleteBuffers(1, &ebo);
-    }
-
     void draw_batch::quad(const rectf &frame, const rectf &tex_coordinate, const mat3x2 &m) {
         indices.reserve(6);
         u32 i = (u32) vertices.size();

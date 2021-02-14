@@ -5,6 +5,7 @@
 
 #include <pocket/pocket.hpp>
 
+#include <pocket/scripts/script_manager.hpp>
 
 namespace {
     u64 time_old = 0;
@@ -44,6 +45,8 @@ namespace engine {
 
     gfx::batcher batch;
     pk::world &world = factory::get_world();
+
+    pk::script_manager scripts;
 
     vec2f camera_pos;
     pk::player_controller *player_ctrl = nullptr;
@@ -90,6 +93,8 @@ namespace engine {
         // == UPDATE =================================
 
         world.update();
+
+        scripts.update();
 
         camera_pos = viewport.size() / 2;
         camera_pos -= player_ctrl->get_global_center();

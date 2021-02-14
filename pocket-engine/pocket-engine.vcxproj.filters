@@ -90,10 +90,105 @@
     <ClCompile Include="src\pocket\components\tilemap_animator.cpp">
       <Filter>File di origine</Filter>
     </ClCompile>
+    <ClCompile Include="src\pocket\scripts\script_manager.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="third_party\lua\lapi.c">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="third_party\lua\lauxlib.c">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="third_party\lua\lbaselib.c">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="third_party\lua\lcode.c">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="third_party\lua\ldblib.c">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="third_party\lua\ldebug.c">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="third_party\lua\ldo.c">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="third_party\lua\ldump.c">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="third_party\lua\lfunc.c">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="third_party\lua\lgc.c">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="third_party\lua\linit.c">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="third_party\lua\liolib.c">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="third_party\lua\llex.c">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="third_party\lua\lmathlib.c">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="third_party\lua\lmem.c">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="third_party\lua\loadlib.c">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="third_party\lua\lobject.c">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="third_party\lua\lopcodes.c">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="third_party\lua\loslib.c">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="third_party\lua\lparser.c">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="third_party\lua\lstate.c">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="third_party\lua\lstring.c">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="third_party\lua\lstrlib.c">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="third_party\lua\ltable.c">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="third_party\lua\ltablib.c">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="third_party\lua\ltm.c">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="third_party\lua\lundump.c">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="third_party\lua\lvm.c">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="third_party\lua\lzio.c">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="third_party\lua\print.c">
+      <Filter>File di origine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\basic.frag" />
     <None Include="shaders\basic.vert" />
+    <None Include="data\scripts\init.lua" />
+    <None Include="data\scripts\main.lua" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="third_party\stb_image.h">
@@ -235,6 +330,81 @@
       <Filter>File di intestazione</Filter>
     </ClInclude>
     <ClInclude Include="src\pocket\pocket.hpp">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pocket\scripts\script_manager.hpp">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\lua\lapi.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\lua\lauxlib.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\lua\lcode.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\lua\ldebug.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\lua\ldo.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\lua\lfunc.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\lua\lgc.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\lua\llex.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\lua\llimits.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\lua\lmem.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\lua\lobject.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\lua\lopcodes.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\lua\lparser.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\lua\lstate.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\lua\lstring.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\lua\ltable.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\lua\ltm.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\lua\lua.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\lua\lua.hpp">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\lua\luaconf.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\lua\lualib.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\lua\lundump.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\lua\lvm.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\lua\lzio.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
   </ItemGroup>
