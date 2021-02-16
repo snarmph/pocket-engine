@@ -1,7 +1,6 @@
 #include "texture.hpp"
 
-#define STB_IMAGE_IMPLEMENTATION
-#include <stb_image.h>
+#include <stb/stb_image.h>
 
 #include <pocket/util/crash.hpp>
 
@@ -48,6 +47,10 @@ namespace gfx {
 
 data_error:
         stbi_image_free(data);
+    }
+
+    void load_from_memory(byte *data) {
+
     }
 //
 //    void texture_t::bind() {

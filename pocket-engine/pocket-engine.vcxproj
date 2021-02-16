@@ -86,7 +86,7 @@
     <RunCodeAnalysis>false</RunCodeAnalysis>
     <ClangTidyChecks>
     </ClangTidyChecks>
-    <CodeAnalysisRuleSet>CppCoreCheckStlRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>MixedRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <EnableMicrosoftCodeAnalysis>false</EnableMicrosoftCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -134,12 +134,14 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
+      <WarningLevel>EnableAllWarnings</WarningLevel>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
-      <ConformanceMode>true</ConformanceMode>
+      <ConformanceMode>false</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <EnablePREfast>true</EnablePREfast>
+      <EnablePREfast>false</EnablePREfast>
+      <MinimalRebuild>true</MinimalRebuild>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -182,6 +184,7 @@
     <ClCompile Include="src\pocket\core\world.cpp" />
     <ClCompile Include="src\pocket\generated\tileset_data.cpp" />
     <ClCompile Include="src\pocket\graphics\batch.cpp" />
+    <ClCompile Include="src\pocket\graphics\font.cpp" />
     <ClCompile Include="src\pocket\graphics\texture.cpp" />
     <ClCompile Include="src\pocket\input\input.cpp" />
     <ClCompile Include="src\pocket\IO\pkfile.cpp" />
@@ -223,6 +226,7 @@
     <ClCompile Include="third_party\lua\lzio.c" />
     <ClCompile Include="third_party\lua\print.c" />
     <ClCompile Include="third_party\sokol\sokol.cpp" />
+    <ClCompile Include="third_party\stb\stb.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="data\scripts\init.lua" />
@@ -251,6 +255,7 @@
     <ClInclude Include="src\pocket\generated\tileset_data.hpp" />
     <ClInclude Include="src\pocket\generated\tileset_data_fromjson.hpp" />
     <ClInclude Include="src\pocket\graphics\batch.hpp" />
+    <ClInclude Include="src\pocket\graphics\font.hpp" />
     <ClInclude Include="src\pocket\graphics\texture.hpp" />
     <ClInclude Include="src\pocket\input\input.hpp" />
     <ClInclude Include="src\pocket\IO\pkfile.hpp" />
@@ -302,7 +307,9 @@
     <ClInclude Include="third_party\sokol\sokol_gl.h" />
     <ClInclude Include="third_party\sokol\sokol_glue.h" />
     <ClInclude Include="third_party\sokol\sokol_time.h" />
-    <ClInclude Include="third_party\stb_image.h" />
+    <ClInclude Include="third_party\stb\stb.h" />
+    <ClInclude Include="third_party\stb\stb_truetype.h" />
+    <ClInclude Include="third_party\stb\stb_image.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

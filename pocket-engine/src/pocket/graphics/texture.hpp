@@ -15,6 +15,7 @@ namespace gfx {
         texture_t(const char *fname);
 
         void load(const char *fname);
+        void load_from_memory(byte *data);
     };
 } // namespace gfx
 

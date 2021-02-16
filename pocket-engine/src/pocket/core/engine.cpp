@@ -6,6 +6,7 @@
 #include <pocket/pocket.hpp>
 
 #include <pocket/scripts/script_manager.hpp>
+#include <pocket/graphics/font.hpp>
 
 namespace {
     u64 time_old = 0;
@@ -78,6 +79,8 @@ namespace engine {
             0.f, 144.f,
             -1.f, 1.f
         );
+
+        pk::load_font("data/fonts/pokemon_fire_red.ttf");
 
         factory::new_tilemap("data/maps/test.json");
         factory::new_tilemap("data/maps/other.json");

@@ -183,6 +183,12 @@
     <ClCompile Include="third_party\lua\print.c">
       <Filter>File di origine</Filter>
     </ClCompile>
+    <ClCompile Include="third_party\stb\stb.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pocket\graphics\font.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\basic.frag" />
@@ -191,9 +197,6 @@
     <None Include="data\scripts\main.lua" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="third_party\stb_image.h">
-      <Filter>File di intestazione</Filter>
-    </ClInclude>
     <ClInclude Include="third_party\sokol\sokol_app.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
@@ -405,6 +408,18 @@
       <Filter>File di intestazione</Filter>
     </ClInclude>
     <ClInclude Include="third_party\lua\lzio.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\stb\stb_truetype.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\stb\stb_image.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\stb\stb.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pocket\graphics\font.hpp">
       <Filter>File di intestazione</Filter>
     </ClInclude>
   </ItemGroup>
